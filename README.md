@@ -1,7 +1,10 @@
 # FRE_virtual_event
 
-![Wageningen University](https://www.wur.nl/upload/58340fb4-e33a-4d0b-af17-8d596fa93663_WUR_RGB_standard.png | width=300)
-![University of Hohenheim](https://www.uni-hohenheim.de/typo3conf/ext/uni_layout/Resources/Public/Images/uni-logo-en.svg | width=300)
+<img src="https://www.wur.nl/upload/58340fb4-e33a-4d0b-af17-8d596fa93663_WUR_RGB_standard.png" width="350">
+
+<img src="https://www.uni-hohenheim.de/typo3conf/ext/uni_layout/Resources/Public/Images/uni-logo-en.svg" width="350">
+
+
 
 # Installation
 1.	Get a computer with ubuntu 18.04*. If you do not have a ubuntu 18.04 machine, you can install a virtual machine following the bullet points below. If you already have an ubuntu 18.04 machine you can skip to step 2.
