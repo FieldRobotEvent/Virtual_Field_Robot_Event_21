@@ -1,6 +1,6 @@
 # Virtual Field Robot Event 
 
-<img src="https://www.fieldrobot.com/event/wp-content/uploads/2019/12/FRE_International-sqr.png" width="200"> <img src="https://www.wur.nl/upload/58340fb4-e33a-4d0b-af17-8d596fa93663_WUR_RGB_standard.png" width="350"> <img src="https://www.uni-hohenheim.de/typo3conf/ext/uni_layout/Resources/Public/Images/uni-logo-en.svg" width="350">
+<img src="https://www.fieldrobot.com/event/wp-content/uploads/2019/12/FRE_International-sqr.png" align="left" width="200"> <img src="https://www.wur.nl/upload/58340fb4-e33a-4d0b-af17-8d596fa93663_WUR_RGB_standard.png" align="left" width="350"> <img src="https://www.uni-hohenheim.de/typo3conf/ext/uni_layout/Resources/Public/Images/uni-logo-en.svg" align="left" width="350">
 
 
 # Installation
