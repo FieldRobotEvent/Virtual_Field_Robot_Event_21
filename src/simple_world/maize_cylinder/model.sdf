@@ -1,0 +1,46 @@
+<?xml version='1.0'?>
+<sdf version="1.6">
+  <model name="maize_cylinder">
+    <pose>0 0 0.5 0 0 0</pose>
+    <static>true</static>
+    <link name="link">
+        <inertial>
+          <inertia>
+            <ixx>0.0000001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000001</iyy>
+            <iyz>0</iyz>
+            <izz>0.0000001</izz>
+          </inertia>
+          <mass>1.0</mass>
+        </inertial>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+	    <radius>0.03</radius>
+	    <length>0.7</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+	    <radius>0.03</radius>
+	    <length>0.7</length>
+          </cylinder>
+        </geometry>
+        <material>  
+		<ambient>0.437790 0.985028 0.656685 1.0</ambient>
+		<diffuse>0.297093 0.668460 0.445640 1.0</diffuse>
+		<specular>0.000000 0.000000 0.000000 1.0</specular>
+		<emissive>0.0 0.0 0.0 0.0</emissive> 
+        </material>  
+      </visual>
+    </link>
+  </model>
+</sdf>
+
+
+
+

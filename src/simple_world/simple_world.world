@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Automatic population of objects -->
+    <population name="maize_field">
+      <model name="maize_cylinder">
+        <include>
+          <static>true</static>
+          <uri>model://maize_cylinder</uri>
+        </include>
+      </model>
+      <pose>0 0 0 0 0 0</pose>
+      <distribution>
+        <type>grid</type>
+        <rows>4</rows>
+        <cols>20</cols>
+        <step>0.133 0.75 0</step>
+      </distribution>
+    </population>
+
+  </world>
+</sdf>
+
