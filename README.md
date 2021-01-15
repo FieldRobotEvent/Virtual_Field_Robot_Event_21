@@ -1,4 +1,4 @@
-# Virtual_Field_Robot_Event
+# Virtual Field Robot Event
 
 <img src="https://www.wur.nl/upload/58340fb4-e33a-4d0b-af17-8d596fa93663_WUR_RGB_standard.png" width="350">
 
