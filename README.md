@@ -12,7 +12,7 @@
 		* Change the configuration about the number of CPU cores used, the max number of RAM to use and the max allowable hard disk space. 
 	* Select ubuntu 18.04 as iso. https://releases.ubuntu.com/18.04.5/ubuntu-18.04.5-desktop-amd64.iso 
 2.	Open a terminal(Ctrl + Alt + T) and type ‘sudo apt install git’ to install git
-3.	Clone the FRE git repository by typing ‘git clone https://github.com/ThijsRuigrok/Virtual_Field_Robot_Event’ in the terminal. This will create a folder  named ‘fre_virtual_event’, containing all the files need to run the simulation.
+3.	Clone the FRE git repository by typing ‘git clone https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event’ in the terminal. This will create a folder  named ‘fre_virtual_event’, containing all the files need to run the simulation.
 4.	Install all required software by typing ‘sudo sh fre_virtual_event/install_required_software.sh’ 
 5.	After the installation type ‘source ~/.bashrc’ in the terminal. 
 6.	You can now run the simulation by running ‘roslaunch simple_world simple_world.launch'. 
