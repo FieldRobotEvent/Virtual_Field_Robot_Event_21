@@ -33,6 +33,9 @@ grep -q -F "source /opt/ros/melodic/setup.bash" ~/.bashrc || echo "source /opt/r
 # add gazebo model path to the bashrc
 grep -q -F "export GAZEBO_MODEL_PATH=~/Virtual_Field_Robot_Event/src/simple_world/:\$GAZEBO_MODEL_PATH" ~/.bashrc || echo "export GAZEBO_MODEL_PATH=~/Virtual_Field_Robot_Event/src/simple_world/:\$GAZEBO_MODEL_PATH" >> ~/.bashrc
 
+# update the current terminal with the newly added settings
+source ~/.bashrc
+
 # make the simple world
 cd ~/Virtual_Field_Robot_Event
 catkin_make 
