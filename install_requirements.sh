@@ -38,7 +38,7 @@ source ~/.bashrc
 
 # install rosdep
 sudo apt -y install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
-sudo rosdep init
+rosdep init
 rosdep update
 
 # make the simple world
