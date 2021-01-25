@@ -36,6 +36,11 @@ grep -q -F "export GAZEBO_MODEL_PATH=~/Virtual_Field_Robot_Event/src/simple_worl
 # update the current terminal with the newly added settings
 source ~/.bashrc
 
+# install rosdep
+sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+sudo rosdep init
+rosdep update
+
 # make the simple world
 cd ~/Virtual_Field_Robot_Event
 catkin_make 
