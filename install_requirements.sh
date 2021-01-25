@@ -36,11 +36,11 @@ grep -q -F "source /opt/ros/melodic/setup.bash" ~/.bashrc || echo "source /opt/r
 grep -q -F "export GAZEBO_MODEL_PATH=~/fre_virtual_event/src/simple_world/:\$GAZEBO_MODEL_PATH" ~/.bashrc || echo "export GAZEBO_MODEL_PATH=~/fre_virtual_event/src/simple_world/:\$GAZEBO_MODEL_PATH" >> ~/.bashrc
 
 # make the simple world
-cd ~/fre_virtual_event
+cd ~/Virtual_Field_Robot_Event
 catkin_make 
 
 # automatically source the simple world workspace
-grep -q -F "source ~/fre_virtual_event/devel/setup.bash" ~/.bashrc || echo "source ~/fre_virtual_event/devel/setup.bash" >> ~/.bashrc
+grep -q -F "source ~/Virtual_Field_Robot_Event/devel/setup.bash" ~/.bashrc || echo "source ~/Virtual_Field_Robot_Event/devel/setup.bash" >> ~/.bashrc
 
 # update the current terminal with the newly added settings
 source ~/.bashrc
