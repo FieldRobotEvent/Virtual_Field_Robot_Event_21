@@ -11,8 +11,6 @@ echo "Please wait while your working environment is setup"
 # install git and configure git
 apt-get -y install git
 
-git clone https://git.wur.nl/ruigr004/fre_virtual_event.git
-
 # install ROS melodic
 # =======================================
 # your computer must accept packages from ros
