@@ -37,7 +37,7 @@ grep -q -F "export GAZEBO_MODEL_PATH=~/Virtual_Field_Robot_Event/src/simple_worl
 source ~/.bashrc
 
 # install rosdep
-sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+sudo apt -y install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
 sudo rosdep init
 rosdep update
 
