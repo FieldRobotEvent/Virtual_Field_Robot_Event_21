@@ -13,7 +13,7 @@
 	* Select ubuntu 18.04 as iso. https://releases.ubuntu.com/18.04.5/ubuntu-18.04.5-desktop-amd64.iso 
 2.	Open a terminal(Ctrl + Alt + T) and type ‘sudo apt install git’ to install git
 3.	Clone the FRE git repository by typing ‘git clone https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event’ in the terminal. This will create a folder  named ‘Virtual_Field_Robot_Event’, containing all the files need to run the simulation.
-4.	Install all required software by typing ‘sudo sh Virtual_Field_Robot_Event/install_required_software.sh’ 
+4.	Install all required software by typing ‘sudo sh Virtual_Field_Robot_Event/install_requirements.sh’ 
 5.	After the installation type ‘source ~/.bashrc’ in the terminal. 
 6.	You can now run the simulation by running ‘roslaunch simple_world simple_world.launch'. 
 7. 	You can controll the robot, and see the sensor autput using 'roslaunch jackal_viz view_robot.launch'. If you encounter any errors, we refer you to the troubleshooting section. 
