@@ -17,7 +17,7 @@
 5.	After the installation type ‘source ~/.bashrc’ in the terminal. 
 6.	You can now run the simulation by running ‘roslaunch simple_world simple_world.launch'. 
 7. 	You can controll the robot, and see the sensor output using 'roslaunch jackal_viz view_robot.launch'. If you encounter any errors, we refer you to the troubleshooting section. 
-8.	The robot used in the simulation is the Clearpath Jackal, you can find detailed instructions and documentation at http://www.clearpathrobotics.com/assets/guides/kinetic/jackal/simulation.html 
+8.	The robot used in the simulation is the Clearpath Jackal, you can find detailed instructions and documentation at http://www.clearpathrobotics.com/assets/guides/kinetic/jackal/simulation.html Be aware that the Jackal has a GPS but that the use of a GNSS receiver is not allowed except for the Free Style in Task 5. The focus for the other tasks in terms of localisation shall be on relative positioning and sensor based behaviours.
 
 *) Feel free to use other versions of Ubuntu, ROS, packages and other software. We have only tested the above versions and software.
 
