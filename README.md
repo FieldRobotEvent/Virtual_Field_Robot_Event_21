@@ -11,19 +11,19 @@
 	* Create a new virtual machine using VMware
 		* Change the configuration about the number of CPU cores used, the max number of RAM to use and the max allowable hard disk space. 
 	* Select ubuntu 18.04 as iso. https://releases.ubuntu.com/18.04.5/ubuntu-18.04.5-desktop-amd64.iso 
-2.	Open a terminal(Ctrl + Alt + T) and type ‘sudo apt install git’ to install git
-3.	Clone the FRE git repository by typing ‘git clone https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event’ in the terminal. This will create a folder  named ‘Virtual_Field_Robot_Event’, containing all the files need to run the simulation.
-4.	Install all required software by typing ‘sudo bash -i Virtual_Field_Robot_Event/install_requirements.sh’ 
-5.	After the installation type ‘source ~/.bashrc’ in the terminal. 
-6.	You can now run the simulation by running ‘roslaunch simple_world simple_world.launch'. 
-7. 	You can controll the robot, and see the sensor output using 'roslaunch jackal_viz view_robot.launch'. If you encounter any errors, we refer you to the troubleshooting section. 
+2.	Open a terminal(Ctrl + Alt + T) and type `sudo apt install git` to install git
+3.	Clone the FRE git repository by typing `git clone https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event` in the terminal. This will create a folder  named ‘Virtual_Field_Robot_Event’, containing all the files need to run the simulation.
+4.	Install all required software by typing `sudo bash -i Virtual_Field_Robot_Event/install_requirements.sh`
+5.	After the installation type `source ~/.bashrc` in the terminal. 
+6.	You can now run the simulation by running `roslaunch simple_world simple_world.launch`. 
+7. 	You can controll the robot, and see the sensor output using `roslaunch jackal_viz view_robot.launch`. If you encounter any errors, we refer you to the troubleshooting section. 
 8.	The robot used in the simulation is the Clearpath Jackal, you can find detailed instructions and documentation at http://www.clearpathrobotics.com/assets/guides/kinetic/jackal/simulation.html Be aware that the Jackal has a GPS but that the use of a GNSS receiver is not allowed except for the Free Style in Task 5. The focus for the other tasks in terms of localisation shall be on relative positioning and sensor based behaviours.
 
 *) Feel free to use other versions of Ubuntu, ROS, packages and other software. We have only tested the above versions and software.
 
 # Trouble shooting
-* If you encounter the error: ‘VMware: vmw_ioctl_command error Invalid argument.’ When launching gazebo. Then you should type ‘echo "export SVGA_VGPU10=0" >> ~/.profile’ in the terminal and reboot your (virtual) machine. 
-* If you encounter the error ‘Error in REST request’ when launching gazebo. Then you should open ‘~/.ignition/fuel/config.yaml’ and change the line: ‘url: https://api.ignitionfuel.org’ to ‘url:  https://api.ignitionrobotics.org’.  
+* If you encounter the error: 'VMware: vmw_ioctl_command error Invalid argument.’ When launching gazebo. Then you should type `echo "export SVGA_VGPU10=0" >> ~/.profile` in the terminal and reboot your (virtual) machine. 
+* If you encounter the error ‘Error in REST request’ when launching gazebo. Then you should open `~/.ignition/fuel/config.yaml` and change the line: ‘url: https://api.ignitionfuel.org’ to ‘url:  https://api.ignitionrobotics.org’.  
 
 
 
