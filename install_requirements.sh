@@ -1,12 +1,14 @@
 #!/bin/bash
 #
 # This file configures the working environment for the Field Robot Event
-# run this file by typing 'sudo sh install_required_software.sh'
 #
 # Author: Thijs Ruigrok
 # email: thijs.ruigrok@wur.nl
 
 echo "Please wait while your working environment is setup"
+
+# Change the workspace_root to the root of you workspace
+workspace_root="$HOME/catkin_ws"
 
 # install git and configure git
 apt-get -y install git
@@ -31,17 +33,17 @@ apt-get -y upgrade
 grep -q -F "source /opt/ros/melodic/setup.bash" ~/.bashrc || echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 
 # add gazebo model path to the bashrc
-grep -q -F "export GAZEBO_MODEL_PATH=~/Virtual_Field_Robot_Event/src/simple_world/:\$GAZEBO_MODEL_PATH" ~/.bashrc || echo "export GAZEBO_MODEL_PATH=~/Virtual_Field_Robot_Event/src/simple_world/:\$GAZEBO_MODEL_PATH" >> ~/.bashrc
+grep -q -F "export GAZEBO_MODEL_PATH=$workspace_root/src/Virtual_Field_Robot_Event/simple_world/:\$GAZEBO_MODEL_PATH" ~/.bashrc || echo "export GAZEBO_MODEL_PATH=$workspace_root/src/Virtual_Field_Robot_Event/simple_world/:\$GAZEBO_MODEL_PATH" >> ~/.bashrc
 
 # update the current terminal with the newly added settings
 source ~/.bashrc
 
 # make the simple world
-cd ~/Virtual_Field_Robot_Event
+cd $workspace_root
 catkin_make 
 
 # automatically source the simple world workspace
-grep -q -F "source ~/Virtual_Field_Robot_Event/devel/setup.bash" ~/.bashrc || echo "source ~/Virtual_Field_Robot_Event/devel/setup.bash" >> ~/.bashrc
+grep -q -F "source $workspace_root/devel/setup.bash" ~/.bashrc || echo "source $workspace_root/devel/setup.bash" >> ~/.bashrc
 
 # update the current terminal with the newly added settings
 source ~/.bashrc
