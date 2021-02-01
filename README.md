@@ -16,7 +16,7 @@
 4.	Install all required software by typing ‘sudo bash -i Virtual_Field_Robot_Event/install_requirements.sh’ 
 5.	After the installation type ‘source ~/.bashrc’ in the terminal. 
 6.	You can now run the simulation by running ‘roslaunch simple_world simple_world.launch'. 
-7. 	You can controll the robot, and see the sensor autput using 'roslaunch jackal_viz view_robot.launch'. If you encounter any errors, we refer you to the troubleshooting section. 
+7. 	You can controll the robot, and see the sensor output using 'roslaunch jackal_viz view_robot.launch'. If you encounter any errors, we refer you to the troubleshooting section. 
 8.	The robot used in the simulation is the Clearpath Jackal, you can find detailed instructions and documentation at http://www.clearpathrobotics.com/assets/guides/kinetic/jackal/simulation.html 
 
 *) Feel free to use other versions of Ubuntu, ROS, packages and other software. We have only tested the above versions and software.
