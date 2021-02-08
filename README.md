@@ -14,7 +14,7 @@
 2.	Open a terminal(Ctrl + Alt + T) and type `sudo apt install git` to install git
 3.	Create a catkin workspace and move into it `mkdir -p ~/catkin_ws/src && cd ~/catkin_ws/src`.
 4.	While in this folder, clone the FRE git repository by typing `git clone https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event` in the terminal. This will create a folder  named ‘Virtual_Field_Robot_Event’, containing all the files need to run the simulation.
-5.	Install all required software by typing `bash -i ~/catkin_ws/src/Virtual_Field_Robot_Event/install_requirements.sh`. This script might ask for your sudo password. 
+5.	Install all required software by typing `sudo bash -i ~/catkin_ws/src/Virtual_Field_Robot_Event/install_requirements.sh`. 
 6.	After the installation type `source ~/.bashrc` in the terminal. 
 7.	You can now run the simulation by running `roslaunch simple_world simple_world.launch`. 
 8. 	You can control the robot, and see the sensor output using `roslaunch jackal_viz view_robot.launch`. If you encounter any errors, we refer you to the troubleshooting section. 
