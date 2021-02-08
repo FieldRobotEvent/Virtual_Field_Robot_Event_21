@@ -35,16 +35,6 @@ grep -q -F "source /opt/ros/melodic/setup.bash" ~/.bashrc || echo "source /opt/r
 # add gazebo model path to the bashrc
 grep -q -F "export GAZEBO_MODEL_PATH=$workspace_root/src/Virtual_Field_Robot_Event/simple_world/:\$GAZEBO_MODEL_PATH" ~/.bashrc || echo "export GAZEBO_MODEL_PATH=$workspace_root/src/Virtual_Field_Robot_Event/simple_world/:\$GAZEBO_MODEL_PATH" >> ~/.bashrc
 
-# update the current terminal with the newly added settings
-source ~/.bashrc
-
-# make the simple world
-cd $workspace_root
-catkin_make 
-
 # automatically source the simple world workspace
 grep -q -F "source $workspace_root/devel/setup.bash" ~/.bashrc || echo "source $workspace_root/devel/setup.bash" >> ~/.bashrc
-
-# update the current terminal with the newly added settings
-source ~/.bashrc
 
