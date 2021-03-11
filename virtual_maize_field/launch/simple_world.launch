@@ -3,7 +3,7 @@
   <arg name="use_sim_time" default="true" />
   <arg name="gui" default="true" />
   <arg name="headless" default="false" />
-  <arg name="world_name" value="$(find simple_world)/simple_world.world"/>
+  <arg name="world_name" value="$(find virtual_maize_field)/worlds/generated.world"/>
 
   <!-- Short-term hack to support the original front_laser:=true argument for spawning
        the simulator. This will be removed in favour of using the config:=x arg instead. -->

@@ -1,4 +1,4 @@
-# Simple World
+# Virtual Maize Field
 This is a package to procedurally generate randomized fields with rows of plants for Gazebo.
 
 ![Screenshot of a generated map with maize plants and pumpkins](./misc/screenshot.png)
@@ -20,7 +20,7 @@ sudo apt install ros-noetic-gazebo-ros-pkgs \
 ## Generating field worlds
 This package includes a script (`scripts/generate_world.py`) that can generate randomized agricultural worlds. All parameters are optional and have default values. You can call the script using
 ```bash
-rosrun simple_world generate_world.py --num_rows_left=2 --num_rows_right=2 --num_plant_pairs=20 --max_angle_variation=0.15 --types=maize_01,maize_02 --row_width 1.0 --plant_offset 0.5
+rosrun virtual_maize_field generate_world.py --num_rows_left=2 --num_rows_right=2 --num_plant_pairs=20 --max_angle_variation=0.15 --types=maize_01,maize_02 --row_width 1.0 --plant_offset 0.5
 ```
 The resulting file will be placed in `worlds/generated.world`.
 ```
