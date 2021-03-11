@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>simple_world</name>
-  <version>0.0.0</version>
+  <version>0.0.2</version>
   <description>The simple_world package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
@@ -48,8 +48,8 @@
   <!--   <test_depend>gtest</test_depend> -->
   <!-- Use doc_depend for packages you need only for building documentation: -->
   <!--   <doc_depend>doxygen</doc_depend> -->
+  <exec_depend>gazebo_ros_pkgs</exec_depend>
   <buildtool_depend>catkin</buildtool_depend>
-
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
