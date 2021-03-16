@@ -8,7 +8,7 @@
 
 This meta repository contains all the custom ROS packages needed for the FRE.
 
-## Repositorys
+## ROS Packages
  - [Virtual Maize Field](virtual_maize_field/README.md)
 
 ## FRE Setup - Installation
