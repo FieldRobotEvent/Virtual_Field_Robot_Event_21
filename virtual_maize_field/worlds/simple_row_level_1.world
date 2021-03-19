@@ -1,0 +1,4438 @@
+<?xml version='1.0'?>
+<!-- Seed: 6560 -->
+<sdf version='1.6'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <audio>
+      <device>default</device>
+    </audio>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <state world_name='default'>
+      <sim_time>29 706000000</sim_time>
+      <real_time>29 884195945</real_time>
+      <wall_time>1582227173 790094351</wall_time>
+      <iterations>29706</iterations>
+      <model name='ground_plane'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose frame=''>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+
+
+    <model name='maize_01_0000'>
+      <pose frame=''>0.5 0.375 0.05 0 -0 1.3600223341538158</pose>
+      <link name='maize_01_0000_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.3311282807557897 0.3311282807557897 0.3311282807557897</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0001'>
+      <pose frame=''>0.5 1.125 0.05 0 -0 2.677823501552403</pose>
+      <link name='maize_02_0001_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.2872331188701795 0.2872331188701795 0.2872331188701795</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0002'>
+      <pose frame=''>0.5 -0.375 0.05 0 -0 0.7794010969113213</pose>
+      <link name='maize_01_0002_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.2730690015843507 0.2730690015843507 0.2730690015843507</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0003'>
+      <pose frame=''>0.5 -1.125 0.05 0 -0 3.1482639450314394</pose>
+      <link name='maize_01_0003_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.3141344367283464 0.3141344367283464 0.3141344367283464</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0004'>
+      <pose frame=''>1.0 0.375 0.05 0 -0 5.410710887583989</pose>
+      <link name='maize_01_0004_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.25072555093034893 0.25072555093034893 0.25072555093034893</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0005'>
+      <pose frame=''>1.0 1.125 0.05 0 -0 0.03637752162979322</pose>
+      <link name='maize_01_0005_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.3118745355552851 0.3118745355552851 0.3118745355552851</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0006'>
+      <pose frame=''>1.0 -0.375 0.05 0 -0 3.4249720220392996</pose>
+      <link name='maize_01_0006_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.39442150070772564 0.39442150070772564 0.39442150070772564</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0007'>
+      <pose frame=''>1.0 -1.125 0.05 0 -0 4.294036604259497</pose>
+      <link name='maize_02_0007_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.37750815569481566 0.37750815569481566 0.37750815569481566</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0008'>
+      <pose frame=''>1.5 0.375 0.05 0 -0 1.7213462130005934</pose>
+      <link name='maize_02_0008_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.3034726118252042 0.3034726118252042 0.3034726118252042</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0009'>
+      <pose frame=''>1.5 1.125 0.05 0 -0 4.4314974867184524</pose>
+      <link name='maize_01_0009_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.22376968917695128 0.22376968917695128 0.22376968917695128</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0010'>
+      <pose frame=''>1.5 -0.375 0.05 0 -0 5.351413573062379</pose>
+      <link name='maize_01_0010_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.36942955646318215 0.36942955646318215 0.36942955646318215</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0011'>
+      <pose frame=''>1.5 -1.125 0.05 0 -0 6.20519176015298</pose>
+      <link name='maize_01_0011_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.2642751800835656 0.2642751800835656 0.2642751800835656</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0012'>
+      <pose frame=''>2.0 0.375 0.05 0 -0 5.318092936520698</pose>
+      <link name='maize_02_0012_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.37911654402443407 0.37911654402443407 0.37911654402443407</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0013'>
+      <pose frame=''>2.0 1.125 0.05 0 -0 3.600621399314939</pose>
+      <link name='maize_01_0013_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.23414965330695608 0.23414965330695608 0.23414965330695608</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0014'>
+      <pose frame=''>2.0 -0.375 0.05 0 -0 5.035344312352286</pose>
+      <link name='maize_02_0014_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.3123531607563908 0.3123531607563908 0.3123531607563908</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0015'>
+      <pose frame=''>2.0 -1.125 0.05 0 -0 1.7062466903858442</pose>
+      <link name='maize_01_0015_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.37975722227831665 0.37975722227831665 0.37975722227831665</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0016'>
+      <pose frame=''>2.5 0.375 0.05 0 -0 2.70278328988394</pose>
+      <link name='maize_01_0016_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.2710803410841551 0.2710803410841551 0.2710803410841551</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0017'>
+      <pose frame=''>2.5 1.125 0.05 0 -0 3.247237612489947</pose>
+      <link name='maize_01_0017_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.29824121708676493 0.29824121708676493 0.29824121708676493</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0018'>
+      <pose frame=''>2.5 -0.375 0.05 0 -0 5.997484823032119</pose>
+      <link name='maize_02_0018_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.345593071975374 0.345593071975374 0.345593071975374</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0019'>
+      <pose frame=''>2.5 -1.125 0.05 0 -0 0.5384140461372181</pose>
+      <link name='maize_02_0019_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.3038158247128699 0.3038158247128699 0.3038158247128699</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0020'>
+      <pose frame=''>3.0 0.375 0.05 0 -0 3.3930099172205708</pose>
+      <link name='maize_01_0020_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.30897451059034653 0.30897451059034653 0.30897451059034653</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0021'>
+      <pose frame=''>3.0 1.125 0.05 0 -0 0.27633990878084297</pose>
+      <link name='maize_02_0021_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.2937961335629669 0.2937961335629669 0.2937961335629669</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0022'>
+      <pose frame=''>3.0 -0.375 0.05 0 -0 4.265031589417287</pose>
+      <link name='maize_02_0022_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.35804169404785235 0.35804169404785235 0.35804169404785235</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0023'>
+      <pose frame=''>3.0 -1.125 0.05 0 -0 0.04330316550367703</pose>
+      <link name='maize_02_0023_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.29640859980951695 0.29640859980951695 0.29640859980951695</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0024'>
+      <pose frame=''>3.5 0.375 0.05 0 -0 2.8452480607829727</pose>
+      <link name='maize_01_0024_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.20856770026501165 0.20856770026501165 0.20856770026501165</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0025'>
+      <pose frame=''>3.5 1.125 0.05 0 -0 0.04074543875046963</pose>
+      <link name='maize_01_0025_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.24756739138650807 0.24756739138650807 0.24756739138650807</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0026'>
+      <pose frame=''>3.5 -0.375 0.05 0 -0 0.6920193435878342</pose>
+      <link name='maize_02_0026_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.23223986737380464 0.23223986737380464 0.23223986737380464</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0027'>
+      <pose frame=''>3.5 -1.125 0.05 0 -0 3.5871722300572557</pose>
+      <link name='maize_02_0027_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.2778433878651723 0.2778433878651723 0.2778433878651723</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0028'>
+      <pose frame=''>4.0 0.375 0.05 0 -0 4.305329657337371</pose>
+      <link name='maize_01_0028_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.20012572928386801 0.20012572928386801 0.20012572928386801</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0029'>
+      <pose frame=''>4.0 1.125 0.05 0 -0 5.611916674288245</pose>
+      <link name='maize_01_0029_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.22489044771845934 0.22489044771845934 0.22489044771845934</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0030'>
+      <pose frame=''>4.0 -0.375 0.05 0 -0 3.0279688841537036</pose>
+      <link name='maize_02_0030_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.21496176250128957 0.21496176250128957 0.21496176250128957</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0031'>
+      <pose frame=''>4.0 -1.125 0.05 0 -0 4.118816503694341</pose>
+      <link name='maize_02_0031_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.2527794769078384 0.2527794769078384 0.2527794769078384</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0032'>
+      <pose frame=''>4.5 0.375 0.05 0 -0 5.17052862556622</pose>
+      <link name='maize_02_0032_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.2560194547498863 0.2560194547498863 0.2560194547498863</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0033'>
+      <pose frame=''>4.5 1.125 0.05 0 -0 4.58463006186249</pose>
+      <link name='maize_02_0033_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.3938329864425643 0.3938329864425643 0.3938329864425643</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0034'>
+      <pose frame=''>4.5 -0.375 0.05 0 -0 4.618867563544765</pose>
+      <link name='maize_01_0034_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.3343370432239868 0.3343370432239868 0.3343370432239868</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0035'>
+      <pose frame=''>4.5 -1.125 0.05 0 -0 0.16733174115876867</pose>
+      <link name='maize_02_0035_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.3613014413421801 0.3613014413421801 0.3613014413421801</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0036'>
+      <pose frame=''>5.0 0.375 0.05 0 -0 3.0987270445685953</pose>
+      <link name='maize_02_0036_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.3234096341171302 0.3234096341171302 0.3234096341171302</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0037'>
+      <pose frame=''>5.0 1.125 0.05 0 -0 2.458939856725338</pose>
+      <link name='maize_02_0037_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.28927187338425564 0.28927187338425564 0.28927187338425564</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0038'>
+      <pose frame=''>5.0 -0.375 0.05 0 -0 0.27465639636035094</pose>
+      <link name='maize_02_0038_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.3876591864937977 0.3876591864937977 0.3876591864937977</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0039'>
+      <pose frame=''>5.0 -1.125 0.05 0 -0 5.839405017485106</pose>
+      <link name='maize_01_0039_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.24119234146680718 0.24119234146680718 0.24119234146680718</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0040'>
+      <pose frame=''>5.5 0.375 0.05 0 -0 0.9497589729427769</pose>
+      <link name='maize_02_0040_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.21858711667320557 0.21858711667320557 0.21858711667320557</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0041'>
+      <pose frame=''>5.5 1.125 0.05 0 -0 6.2459496935782495</pose>
+      <link name='maize_02_0041_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.3388122641992974 0.3388122641992974 0.3388122641992974</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0042'>
+      <pose frame=''>5.5 -0.375 0.05 0 -0 4.582915750407094</pose>
+      <link name='maize_01_0042_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.32465071439142795 0.32465071439142795 0.32465071439142795</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0043'>
+      <pose frame=''>5.5 -1.125 0.05 0 -0 2.431590480365372</pose>
+      <link name='maize_02_0043_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.27416667167293945 0.27416667167293945 0.27416667167293945</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0044'>
+      <pose frame=''>6.0 0.375 0.05 0 -0 0.2853114079623267</pose>
+      <link name='maize_02_0044_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.33299598559949506 0.33299598559949506 0.33299598559949506</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0045'>
+      <pose frame=''>6.0 1.125 0.05 0 -0 5.372026074842271</pose>
+      <link name='maize_01_0045_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.24501658317784994 0.24501658317784994 0.24501658317784994</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0046'>
+      <pose frame=''>6.0 -0.375 0.05 0 -0 4.383606273058045</pose>
+      <link name='maize_02_0046_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.35834626922426993 0.35834626922426993 0.35834626922426993</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0047'>
+      <pose frame=''>6.0 -1.125 0.05 0 -0 5.460800771616093</pose>
+      <link name='maize_02_0047_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.3404277097184794 0.3404277097184794 0.3404277097184794</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0048'>
+      <pose frame=''>6.5 0.375 0.05 0 -0 4.197824193696105</pose>
+      <link name='maize_02_0048_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.3930015463552692 0.3930015463552692 0.3930015463552692</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0049'>
+      <pose frame=''>6.5 1.125 0.05 0 -0 3.325060530622572</pose>
+      <link name='maize_02_0049_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.2525936123253457 0.2525936123253457 0.2525936123253457</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0050'>
+      <pose frame=''>6.5 -0.375 0.05 0 -0 2.6452268645913084</pose>
+      <link name='maize_01_0050_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.34988049268922766 0.34988049268922766 0.34988049268922766</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0051'>
+      <pose frame=''>6.5 -1.125 0.05 0 -0 1.8059870915787106</pose>
+      <link name='maize_02_0051_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.3333709899031935 0.3333709899031935 0.3333709899031935</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0052'>
+      <pose frame=''>7.0 0.375 0.05 0 -0 0.317478417992234</pose>
+      <link name='maize_02_0052_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.3735038363963187 0.3735038363963187 0.3735038363963187</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0053'>
+      <pose frame=''>7.0 1.125 0.05 0 -0 0.39336368954330675</pose>
+      <link name='maize_01_0053_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.390859367413659 0.390859367413659 0.390859367413659</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0054'>
+      <pose frame=''>7.0 -0.375 0.05 0 -0 0.3235235231974775</pose>
+      <link name='maize_01_0054_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.31469965929796906 0.31469965929796906 0.31469965929796906</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0055'>
+      <pose frame=''>7.0 -1.125 0.05 0 -0 5.231038463774564</pose>
+      <link name='maize_01_0055_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.22962396697204446 0.22962396697204446 0.22962396697204446</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0056'>
+      <pose frame=''>7.5 0.375 0.05 0 -0 5.091173461727646</pose>
+      <link name='maize_01_0056_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.3129630156213196 0.3129630156213196 0.3129630156213196</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0057'>
+      <pose frame=''>7.5 1.125 0.05 0 -0 5.54683195651712</pose>
+      <link name='maize_01_0057_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.2586551735215083 0.2586551735215083 0.2586551735215083</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0058'>
+      <pose frame=''>7.5 -0.375 0.05 0 -0 0.7385467353035033</pose>
+      <link name='maize_02_0058_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.20641348263510723 0.20641348263510723 0.20641348263510723</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0059'>
+      <pose frame=''>7.5 -1.125 0.05 0 -0 1.9555274042005997</pose>
+      <link name='maize_01_0059_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.3018567553953647 0.3018567553953647 0.3018567553953647</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0060'>
+      <pose frame=''>8.0 0.375 0.05 0 -0 3.7324006926183566</pose>
+      <link name='maize_02_0060_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.3500492068910138 0.3500492068910138 0.3500492068910138</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0061'>
+      <pose frame=''>8.0 1.125 0.05 0 -0 0.7616020057060232</pose>
+      <link name='maize_02_0061_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.2773309699453305 0.2773309699453305 0.2773309699453305</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0062'>
+      <pose frame=''>8.0 -0.375 0.05 0 -0 5.1437985047938115</pose>
+      <link name='maize_01_0062_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.38910187145824193 0.38910187145824193 0.38910187145824193</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0063'>
+      <pose frame=''>8.0 -1.125 0.05 0 -0 2.4983233631897828</pose>
+      <link name='maize_01_0063_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.2826769039824792 0.2826769039824792 0.2826769039824792</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0064'>
+      <pose frame=''>8.5 0.375 0.05 0 -0 0.11044457041296002</pose>
+      <link name='maize_01_0064_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.3714869981637424 0.3714869981637424 0.3714869981637424</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0065'>
+      <pose frame=''>8.5 1.125 0.05 0 -0 6.146777410385023</pose>
+      <link name='maize_02_0065_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.3727108868170526 0.3727108868170526 0.3727108868170526</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0066'>
+      <pose frame=''>8.5 -0.375 0.05 0 -0 0.4728197861717884</pose>
+      <link name='maize_02_0066_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.27092845120646253 0.27092845120646253 0.27092845120646253</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0067'>
+      <pose frame=''>8.5 -1.125 0.05 0 -0 3.7055239564269677</pose>
+      <link name='maize_01_0067_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.36078372558714794 0.36078372558714794 0.36078372558714794</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0068'>
+      <pose frame=''>9.0 0.375 0.05 0 -0 0.11492915054282817</pose>
+      <link name='maize_01_0068_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.2658393905776071 0.2658393905776071 0.2658393905776071</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0069'>
+      <pose frame=''>9.0 1.125 0.05 0 -0 4.824034160062416</pose>
+      <link name='maize_02_0069_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.2875159933631398 0.2875159933631398 0.2875159933631398</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0070'>
+      <pose frame=''>9.0 -0.375 0.05 0 -0 5.788167754860052</pose>
+      <link name='maize_02_0070_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.2233397353517591 0.2233397353517591 0.2233397353517591</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0071'>
+      <pose frame=''>9.0 -1.125 0.05 0 -0 6.024433082249104</pose>
+      <link name='maize_02_0071_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.32936906750561845 0.32936906750561845 0.32936906750561845</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0072'>
+      <pose frame=''>9.5 0.375 0.05 0 -0 4.505742952550181</pose>
+      <link name='maize_02_0072_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.2964635255742295 0.2964635255742295 0.2964635255742295</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0073'>
+      <pose frame=''>9.5 1.125 0.05 0 -0 2.747349621490334</pose>
+      <link name='maize_02_0073_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.26292365238816123 0.26292365238816123 0.26292365238816123</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0074'>
+      <pose frame=''>9.5 -0.375 0.05 0 -0 3.6713678416279443</pose>
+      <link name='maize_02_0074_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.3849783121938182 0.3849783121938182 0.3849783121938182</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0075'>
+      <pose frame=''>9.5 -1.125 0.05 0 -0 0.47239095698084843</pose>
+      <link name='maize_02_0075_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.2789444599489475 0.2789444599489475 0.2789444599489475</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0076'>
+      <pose frame=''>10.0 0.375 0.05 0 -0 4.316000359090008</pose>
+      <link name='maize_01_0076_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.22277089174022383 0.22277089174022383 0.22277089174022383</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0077'>
+      <pose frame=''>10.0 1.125 0.05 0 -0 3.1119411042090834</pose>
+      <link name='maize_02_0077_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.237492609919475 0.237492609919475 0.237492609919475</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_01_0078'>
+      <pose frame=''>10.0 -0.375 0.05 0 -0 4.3245158075715695</pose>
+      <link name='maize_01_0078_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_01/meshes/maize_01.dae</uri>
+              <scale>0.21615754422257008 0.21615754422257008 0.21615754422257008</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+
+    <model name='maize_02_0079'>
+      <pose frame=''>10.0 -1.125 0.05 0 -0 0.17952890599334348</pose>
+      <link name='maize_02_0079_link'>
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.0033416667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0033416667</iyy>
+            <iyz>0</iyz>
+            <izz>0.000016666667</izz>
+          </inertia>
+          <pose>0 0 0.1 0 0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.02 0.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize_02/meshes/maize_02.dae</uri>
+              <scale>0.31472345312077843 0.31472345312077843 0.31472345312077843</scale>
+            </mesh>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>5.45099 -4.71679 1.58055 0 0.275643 2.35619</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+  </world>
+</sdf>
