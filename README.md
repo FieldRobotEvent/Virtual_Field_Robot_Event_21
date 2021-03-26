@@ -10,6 +10,7 @@ This meta repository contains all the custom ROS packages needed for the FRE.
 
 ## ROS Packages
  - [Virtual Maize Field](virtual_maize_field/README.md)
+ - [jackal_fre](jackal_fre/README.md)
 
 ## FRE Setup - Installation
 1.	Get a computer with ubuntu 18.04*. If you do not have a ubuntu 18.04 machine, you can install a virtual machine following the bullet points below. If you already have an ubuntu 18.04 machine you can skip to step 2.
@@ -32,6 +33,8 @@ This meta repository contains all the custom ROS packages needed for the FRE.
 ### Trouble shooting
 * If you encounter the error: 'VMware: vmw_ioctl_command error Invalid argument.’ When launching gazebo. Then you should type `echo "export SVGA_VGPU10=0" >> ~/.profile` in the terminal and reboot your (virtual) machine. 
 * If you encounter the error ‘Error in REST request’ when launching gazebo. Then you should open `~/.ignition/fuel/config.yaml` and change the line: ‘url: https://api.ignitionfuel.org’ to ‘url:  https://api.ignitionrobotics.org’.
+* If the lidar data on the topic `front/scan` only returns ranges with the value `inf`, even though in simulation the lidar should ‘see’ certain objects within its range, you have to run `export LIBGL_ALWAYS_SOFTWARE=1`. This solves the problem with the lidar, but might have some consequences on the rendering speed of gazebo. 
+
 
 
 
