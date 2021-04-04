@@ -1,0 +1,8 @@
+version: '3'
+services:
+  a_container:
+    image: a_container
+    ports:
+    - "8080:8080"
+  b_container:
+    image: b_container
