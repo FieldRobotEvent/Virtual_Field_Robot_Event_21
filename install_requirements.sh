@@ -32,9 +32,6 @@ apt-get -y upgrade
 # add ros to the bashrc
 grep -q -F "source /opt/ros/melodic/setup.bash" ~/.bashrc || echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 
-# add gazebo model path to the bashrc
-grep -q -F "export GAZEBO_MODEL_PATH=$workspace_root/src/Virtual_Field_Robot_Event/virtual_maize_field/models/:\$GAZEBO_MODEL_PATH" ~/.bashrc || echo "export GAZEBO_MODEL_PATH=$workspace_root/src/Virtual_Field_Robot_Event/virtual_maize_field/models/:\$GAZEBO_MODEL_PATH" >> ~/.bashrc
-
 # automatically source the simple world workspace
 grep -q -F "source $workspace_root/devel/setup.bash" ~/.bashrc || echo "source $workspace_root/devel/setup.bash" >> ~/.bashrc
 
