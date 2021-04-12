@@ -23,9 +23,6 @@ apt-get update
 # install ros melodic
 apt-get -y install ros-melodic-desktop-full
 
-# install the jackal software
-sudo apt-get -y install ros-melodic-jackal-simulator ros-melodic-jackal-desktop ros-melodic-jackal-navigation
-
 apt-get update
 apt-get -y upgrade 
 
