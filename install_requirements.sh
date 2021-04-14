@@ -26,6 +26,9 @@ apt-get -y install ros-melodic-desktop-full
 apt-get update
 apt-get -y upgrade 
 
+# neede for the jackal accessoires 
+sudo apt install ros-melodic-pointgrey-camera-description
+
 # add ros to the bashrc
 grep -q -F "source /opt/ros/melodic/setup.bash" ~/.bashrc || echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 
