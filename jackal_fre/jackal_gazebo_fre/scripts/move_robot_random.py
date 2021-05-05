@@ -6,6 +6,7 @@ from gazebo_msgs.msg import ModelState
 from gazebo_msgs.srv import SetModelState
 import random
 import tf
+import time
 
 
 def main(x_range=0.2, y_range=0.2, yaw_range=0.2):
@@ -24,12 +25,17 @@ def main(x_range=0.2, y_range=0.2, yaw_range=0.2):
     state_msg.pose.orientation.w = quaternion[3]
 
     rospy.wait_for_service('/gazebo/set_model_state')
-    try:
-        set_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
-        resp = set_state( state_msg )
+    set_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
 
-    except rospy.ServiceException, e:
-        print "Service call failed: %s" % e
+    for i in range(10):    
+        resp = set_state( state_msg )
+        if resp.success:
+            print('model location randomized')
+            break
+        else:
+            print('model not found yet, will try again in 1 second')
+	    time.sleep(1)
+
 
 if __name__ == '__main__':
     try:
