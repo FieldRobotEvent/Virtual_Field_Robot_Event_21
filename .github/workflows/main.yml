@@ -30,4 +30,3 @@ jobs:
         with:
           line-length: '100'
           path: 'virtual_maize_field/scripts'
-          only-check: 'no'
