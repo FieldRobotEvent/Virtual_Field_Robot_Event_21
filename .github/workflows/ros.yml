@@ -1,0 +1,83 @@
+# This is a basic workflow to help you get started with Actions
+
+name: ROS-CI
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  Ubuntu: # On Linux, iterates on all ROS 1, and ROS 2 distributions.
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ros_distribution:
+          - melodic
+          - noetic
+        #  - eloquent
+        #  - foxy
+
+        # Define the Docker image(s) associated with each ROS distribution.
+        # The include syntax allows additional variables to be defined, like
+        # docker_image in this case. See documentation:
+        # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#example-including-configurations-in-a-matrix-build
+        #
+        # Platforms are defined in REP 3, and REP 2000:
+        # https://ros.org/reps/rep-0003.html
+        # https://ros.org/reps/rep-2000.html
+        include:
+          # Melodic Morenia (May 2018 - May 2023)
+          - docker_image: ubuntu:bionic
+            ros_distribution: melodic
+            ros_version: 1
+
+          # Noetic Ninjemys (May 2020 - May 2025)
+          - docker_image: ubuntu:focal
+            ros_distribution: noetic
+            ros_version: 1
+
+          # Eloquent Elusor (November 2019 - November 2020)
+          # - docker_image: ubuntu:bionic
+          #   ros_distribution: eloquent
+          #   ros_version: 2
+            
+          # Foxy Fitzroy (June 2020 - May 2023)
+          # - docker_image: ubuntu:focal
+          #   ros_distribution: foxy
+          #   ros_version: 2
+
+    container:
+      image: ${{ matrix.docker_image }}
+    steps:
+      - name: codestyle black
+        uses: piotrpawlaczek/python-blacken@release/stable
+        with:
+          line-length: '88'
+          path: 'virtual_maize_field/scripts'
+          sanity-check: 'safe'
+          only-check: 'no'
+      - name: setup ROS environment
+        uses: ros-tooling/setup-ros@0.1.3
+        with:
+          required-ros-distributions: ${{ matrix.ros_distribution }}
+      - name: build and test ROS1
+        if: ${{ matrix.ros_version == 1 }}
+        uses: ros-tooling/action-ros-ci@0.2.0
+        with:
+          package-name: virtual_maize_field # MORE_PACKAGES_HERE
+          target-ros1-distro: ${{ matrix.ros_distribution }}
+          vcs-repo-file-url: ""
+      # - name: build and test ROS2
+      #   if: ${{ matrix.ros_version == 2 }}
+      #   uses: ros-tooling/action-ros-ci@0.2.0
+      #   with:
+      #     package-name: YOUR_PACKAGE_HERE MORE_PACKAGES_HERE
+      #     target-ros2-distro: ${{ matrix.ros_distribution }}
+      #    vcs-repo-file-url: ""
