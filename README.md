@@ -29,7 +29,6 @@ This meta repository contains all the custom ROS packages needed for the FRE.
 
 *) Feel free to use other versions of Ubuntu, ROS, packages and other software. We have only tested the above versions and software.
 
-
 ### Trouble shooting
 * If you encounter the error: 'VMware: vmw_ioctl_command error Invalid argument.’ When launching gazebo. Then you should type `echo "export SVGA_VGPU10=0" >> ~/.profile` in the terminal and reboot your (virtual) machine. 
 * If you encounter the error ‘Error in REST request’ when launching gazebo. Then you should open `~/.ignition/fuel/config.yaml` and change the line: ‘url: https://api.ignitionfuel.org’ to ‘url:  https://api.ignitionrobotics.org’.
