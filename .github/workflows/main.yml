@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Checkstyle - Python Black
 
 # Controls when the action will run. 
 on:
@@ -30,5 +30,4 @@ jobs:
         with:
           line-length: '100'
           path: 'virtual_maize_field/scripts'
-          sanity-check: 'safe'
           only-check: 'no'
