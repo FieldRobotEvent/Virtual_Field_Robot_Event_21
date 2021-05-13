@@ -7,7 +7,7 @@
   <!-- <arg name="env_runner" value="env_run" /> -->
 
   <param name="robot_description"
-         command="$(find jackal_description)/scripts/$(arg env_runner)
+         command="$(find jackal_description_fre)/scripts/$(arg env_runner)
                     $(find jackal_description_fre)/urdf/configs/$(arg config)
                     $(find xacro)/xacro $(find jackal_description_fre)/urdf/jackal.urdf.xacro
                     --inorder" />

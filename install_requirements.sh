@@ -23,17 +23,18 @@ apt-get update
 # install ros melodic
 apt-get -y install ros-melodic-desktop-full
 
-# install the jackal software
-sudo apt-get -y install ros-melodic-jackal-simulator ros-melodic-jackal-desktop ros-melodic-jackal-navigation
-
 apt-get update
 apt-get -y upgrade 
 
+# needed for the jackal accessoires 
+sudo apt-get -y install ros-melodic-pointgrey-camera-description
+sudo apt-get -y install ros-melodic-robot-localization 
+sudo apt-get -y install ros-melodic-twist-mux
+sudo apt-get -y install ros-melodic-interactive-marker-twist-server
+sudo apt-get -y install ros-melodic-hector-gazebo-plugins
+
 # add ros to the bashrc
 grep -q -F "source /opt/ros/melodic/setup.bash" ~/.bashrc || echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
-
-# add gazebo model path to the bashrc
-grep -q -F "export GAZEBO_MODEL_PATH=$workspace_root/src/Virtual_Field_Robot_Event/virtual_maize_field/models/:\$GAZEBO_MODEL_PATH" ~/.bashrc || echo "export GAZEBO_MODEL_PATH=$workspace_root/src/Virtual_Field_Robot_Event/virtual_maize_field/models/:\$GAZEBO_MODEL_PATH" >> ~/.bashrc
 
 # automatically source the simple world workspace
 grep -q -F "source $workspace_root/devel/setup.bash" ~/.bashrc || echo "source $workspace_root/devel/setup.bash" >> ~/.bashrc

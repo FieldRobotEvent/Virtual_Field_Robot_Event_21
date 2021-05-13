@@ -21,6 +21,7 @@
     </plugin>
   </gazebo>
 
+<!--
   <gazebo>
     <plugin name="gps_controller" filename="libhector_gazebo_ros_gps.so">
       <updateRate>40</updateRate>
@@ -36,6 +37,7 @@
       <drift>0.0001 0.0001 0.0001</drift>
     </plugin>
   </gazebo>
+-->
 
   <gazebo reference="base_link">
     <turnGravityOff>false</turnGravityOff>
