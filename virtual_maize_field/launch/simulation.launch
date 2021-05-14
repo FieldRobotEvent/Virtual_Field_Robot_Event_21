@@ -38,7 +38,7 @@
   <arg name="spawn_position_z" default="0.5" />
   <arg name="spawn_position_yaw" default="0.0"/>
   <!-- Overwrite spawn position -->
-  <rosparam command="load" file="$(find virtual_maize_field)/config/spawn_position.yaml" />
+  <rosparam command="load" file="$(find virtual_maize_field)/config/spawn_location.yaml" />
   
   <!-- Spawn Jackal -->
   <include file="$(find jackal_gazebo_fre)/launch/spawn_jackal.launch">
