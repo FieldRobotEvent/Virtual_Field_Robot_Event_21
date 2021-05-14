@@ -32,12 +32,20 @@
     <arg name="world_name" value="$(arg world_path)$(arg world_name)" />
   </include>
 
+  <!-- Load spawn position -->
+  <arg name="spawn_position_x" default="0.0" />
+  <arg name="spawn_position_y" default="0.0" />
+  <arg name="spawn_position_z" default="0.5" />
+  <arg name="spawn_position_yaw" default="0.0"/>
+  <!-- Overwrite spawn position -->
+  <rosparam command="load" file="$(find virtual_maize_field)/config/spawn_position.yaml" />
+  
   <!-- Spawn Jackal -->
   <include file="$(find jackal_gazebo_fre)/launch/spawn_jackal.launch">
-    <arg name="x" value="0" />
-    <arg name="y" value="0" />
-    <arg name="z" value="0.1" />
-    <arg name="yaw" value="0" />
+    <arg name="x" value="$(arg spawn_position_x)" />
+    <arg name="y" value="$(arg spawn_position_y)" />
+    <arg name="z" value="$(arg spawn_position_z)" />
+    <arg name="yaw" value="$(arg spawn_position_yaw)" />
     <arg name="config" value="$(arg config)" />
     <arg name="joystick" value="$(arg joystick)" />
   </include>
