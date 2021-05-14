@@ -180,31 +180,49 @@ class Field2DGenerator:
         self.field_poly = geometry.Polygon(outer_plants)
 
         # place x_nr of weeds within the field area
-        self.weed_placements = random_points_within(
-            self.field_poly, self.wd.structure["params"]["weeds"]
-        )
-        weed_types = np.random.choice(
-            self.wd.structure["params"]["weed_types"].split(","),
-            self.wd.structure["params"]["weeds"],
-        )
+        if self.wd.structure["params"]["weeds"] > 0:
+            self.weed_placements = random_points_within(
+                self.field_poly, self.wd.structure["params"]["weeds"]
+            )
+            weed_types = np.random.choice(
+                self.wd.structure["params"]["weed_types"].split(","),
+                self.wd.structure["params"]["weeds"],
+            )
 
         # place y_nr of litter within the field area
-        self.litter_placements = random_points_within(
-            self.field_poly, self.wd.structure["params"]["litters"]
-        )
-        litter_types = np.random.choice(
-            self.wd.structure["params"]["litter_types"].split(","),
-            self.wd.structure["params"]["litters"],
-        )
+        if self.wd.structure["params"]["litters"] > 0:
+            self.litter_placements = random_points_within(
+                self.field_poly, self.wd.structure["params"]["litters"]
+            )
+            litter_types = np.random.choice(
+                self.wd.structure["params"]["litter_types"].split(","),
+                self.wd.structure["params"]["litters"],
+            )
 
         # TODO Thijs
         # place start marker at the beginning of the field
 
         # TODO Thijs
         # place location markers at the desginated locations
+        if self.wd.structure["params"]["location_markers"]:
+            begin = self.rows[0][0]
+            end = self.rows[-1][0]
+            line = geometry.LineString([begin, end])
+            offset_a = line.parallel_offset(2.5, "right", join_style=2, mitre_limit=0.1)
+            self.marker_a_loc = np.array([[offset_a.centroid.xy[0][0], offset_a.centroid.xy[1][0]]])
 
-        self.object_placements = np.concatenate((self.weed_placements, self.litter_placements))
-        self.object_types = np.concatenate((weed_types, litter_types))
+            begin = self.rows[0][-1]
+            end = self.rows[-1][-1]
+            line = geometry.LineString([begin, end])
+            offset_b = line.parallel_offset(2.5, "left", join_style=2, mitre_limit=0.1)
+            self.marker_b_loc = np.array([[offset_b.centroid.xy[0][0], offset_b.centroid.xy[1][0]]])
+
+        self.object_placements = np.concatenate(
+            (self.weed_placements, self.litter_placements, self.marker_a_loc, self.marker_b_loc)
+        )
+        self.object_types = np.concatenate(
+            (weed_types, litter_types, ["location_marker_a", "location_marker_b"])
+        )
 
     def generate_ground(self):
         ditch_depth = self.wd.structure["params"]["ground_ditch_depth"]
@@ -275,13 +293,18 @@ class Field2DGenerator:
             px = metric_to_pixel(mx)
             py = metric_to_pixel(my)
 
-            field_mask = cv2.circle(
-                field_mask, (px, py), int((ditch_distance) / self.resolution), 1, -1
-            )
-
             height = heightmap[py, px]
             heightmap = cv2.circle(heightmap, (px, py), flatspot_radius, height, -1)
             self.placements_ground_height.append((field_height + height) * self.heightmap_elevation)
+
+        # create ditch around the crop field
+        for mx, my in self.crop_placements:
+            px = metric_to_pixel(mx)
+            py = metric_to_pixel(my)
+
+            field_mask = cv2.circle(
+                field_mask, (px, py), int((ditch_distance) / self.resolution), 1, -1
+            )
 
         blur_size = (int(0.2 / self.resolution) // 2) * 2 + 1
         field_mask = cv2.GaussianBlur(field_mask, (blur_size, blur_size), 0)
