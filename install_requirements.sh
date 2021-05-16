@@ -33,6 +33,7 @@ sudo apt-get -y install ros-melodic-twist-mux
 sudo apt-get -y install ros-melodic-interactive-marker-twist-server
 sudo apt-get -y install ros-melodic-hector-gazebo-plugins
 
+# needed for the virtual maize field
 sudo apt -y install python3-pip
 sudo pip3 install -U jinja2 rospkg opencv-python matplotlib shapely
 
