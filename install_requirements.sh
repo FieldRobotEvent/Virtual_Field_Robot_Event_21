@@ -33,6 +33,9 @@ sudo apt-get -y install ros-melodic-twist-mux
 sudo apt-get -y install ros-melodic-interactive-marker-twist-server
 sudo apt-get -y install ros-melodic-hector-gazebo-plugins
 
+sudo apt -y install python3-pip
+sudo pip3 install -U jinja2 rospkg opencv-python matplotlib shapely
+
 # add ros to the bashrc
 grep -q -F "source /opt/ros/melodic/setup.bash" ~/.bashrc || echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 
