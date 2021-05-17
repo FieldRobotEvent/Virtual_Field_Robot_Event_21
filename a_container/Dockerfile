@@ -43,19 +43,25 @@ RUN mkdir -p /catkin/src && cd /catkin/src && git clone https://github.com/Field
 RUN bash -c "source /opt/ros/melodic/setup.bash && cd /catkin && catkin_make"
 RUN sed -i 's|^\(source .*\)|\1 \&\& source /catkin/devel/setup.bash|g' /ros_entrypoint.sh
 
+#Map volume location
+VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map","/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/worlds"]
+
 EXPOSE 8080
 
 # launch turtlebot and print some gazebo stuff
-ENV TURTLEBOT3_MODEL=burger
-CMD sh -c "echo TURTLEBOT3_MODEL: $TURTLEBOT3_MODEL" & \
-  sh -c "echo gazebo model path: $GAZEBO_MODEL_PATH" & \
-  sh -c "echo Version 9"& \
-  roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch gui:=false verbose:=true & \
-  cd /gzweb && npm start
+#ENV TURTLEBOT3_MODEL=burger
+#CMD sh -c "echo TURTLEBOT3_MODEL: $TURTLEBOT3_MODEL" & \
+#  sh -c "echo gazebo model path: $GAZEBO_MODEL_PATH" & \
+#  sh -c "echo Version 9"& \
+#  roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch gui:=false verbose:=true & \
+#  cd /gzweb && npm start
 
 #Something like this
-#CMD rosrun virtual_maize_field create_task_1_mini.sh && \
-#roslaunch virtual_maize_field jackal_simulation.launch
+ENV LIBGL_ALWAYS_SOFTWARE=1
+CMD sh -c "rosrun virtual_maize_field create_task_1_mini.sh" && \
+ sh -c "roslaunch virtual_maize_field simulation.launch gui:=false verbose:=true" & \
+ cd /gzweb && npm start
+# roslaunch virtual_maize_field jackal_simulation.launch"
 
 # the problem of th enot working models is potentially related to a mistake in the installation in which the models are copied to the "client/assets" folder. 
 # https://answers.gazebosim.org//question/17367/simulated-robot-model-randomly-appears-in-gzweb-gui/
