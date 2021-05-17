@@ -1,10 +1,15 @@
 FROM ros:melodic-robot
 
-# Install turtlebot packages
-RUN apt-get update && apt-get install -y \
-      ros-${ROS_DISTRO}-ros-tutorials \
-      ros-${ROS_DISTRO}-common-tutorials \
-      ros-melodic-turtlebot3-*
+#Competition dependencies
+RUN apt-get update && \
+  apt-get -y install ros-melodic-desktop-full ros-melodic-pointgrey-camera-description && \
+  apt-get -y install ros-melodic-robot-localization ros-melodic-twist-mux && \
+  apt-get -y install ros-melodic-interactive-marker-twist-server ros-melodic-hector-gazebo-plugins && \
+  apt-get -y install git screen python-pip python3-pip && \
+  rm -rf /var/lib/apt/lists/*
+RUN pip install -U pip && pip3 install -U pip
+RUN pip install -U jinja2 rospkg
+RUN pip3 install numpy jinja2 rospkg opencv-python matplotlib shapely
 
 #Plain gazebo requirements
 RUN apt-get update && \
@@ -27,17 +32,6 @@ RUN git clone -b gzweb_1.4.1 --single-branch https://github.com/osrf/gzweb
 RUN . /usr/share/gazebo/setup.sh 
 RUN cd gzweb && npm run deploy --- -m local
 
-#Competition dependencies
-RUN apt-get update && \
-  apt-get -y install ros-melodic-desktop-full ros-melodic-pointgrey-camera-description && \
-  apt-get -y install ros-melodic-robot-localization ros-melodic-twist-mux && \
-  apt-get -y install ros-melodic-interactive-marker-twist-server ros-melodic-hector-gazebo-plugins && \
-  apt-get -y install git screen python-pip python3-pip && \
-  rm -rf /var/lib/apt/lists/*
-RUN pip install -U pip && pip3 install -U pip
-RUN pip install -U jinja2 rospkg
-RUN pip3 install numpy jinja2 rospkg opencv-python matplotlib shapely
-
 #Make the code required for the container and add it to the entrypoint
 RUN mkdir -p /catkin/src && cd /catkin/src && git clone https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event.git
 RUN bash -c "source /opt/ros/melodic/setup.bash && cd /catkin && catkin_make"
@@ -59,7 +53,7 @@ EXPOSE 8080
 #Something like this
 ENV LIBGL_ALWAYS_SOFTWARE=1
 CMD sh -c "rosrun virtual_maize_field create_task_1_mini.sh" && \
- sh -c "roslaunch virtual_maize_field simulation.launch gui:=false verbose:=true" & \
+ sh -c "roslaunch virtual_maize_field jackal_simulation.launch gui:=false verbose:=true" & \
  cd /gzweb && npm start
 # roslaunch virtual_maize_field jackal_simulation.launch"
 
