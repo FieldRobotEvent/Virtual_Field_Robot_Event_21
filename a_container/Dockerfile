@@ -25,7 +25,7 @@ RUN wget -q -O- https://deb.nodesource.com/setup_10.x | bash && \
 #Build gzweb
 RUN git clone -b gzweb_1.4.1 --single-branch https://github.com/osrf/gzweb
 RUN . /usr/share/gazebo/setup.sh 
-RUN cd gzweb && npm run deploy --- -m -t
+RUN cd gzweb && npm run deploy --- -m local
 
 #Competition dependencies
 RUN apt-get update && \
