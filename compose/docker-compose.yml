@@ -12,4 +12,4 @@ services:
     - "a_container"
     image: b_container
     build: ../b_container
-    hostname: acontainer
+    hostname: bcontainer
