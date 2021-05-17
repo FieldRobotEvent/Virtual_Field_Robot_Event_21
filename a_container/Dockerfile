@@ -36,7 +36,7 @@ RUN sed -i 's|^\(source .*\)|\1 \&\& source /catkin/devel/setup.bash|g' /ros_ent
 RUN git clone -b gzweb_1.4.1 --single-branch https://github.com/osrf/gzweb
 RUN . /usr/share/gazebo/setup.sh 
 RUN mkdir -p /gzweb/http/client/assets/ && \
-  cp -r /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/models/* /gzweb/http/client/assets/
+  cp -r /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/models/* /gzweb/http/client/assets/ && \
   cp -r /catkin/src/Virtual_Field_Robot_Event/jackal_fre/* /gzweb/http/client/assets/
 RUN cd gzweb && npm run deploy --- -m local
 
