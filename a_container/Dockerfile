@@ -27,15 +27,17 @@ RUN wget -q -O- https://deb.nodesource.com/setup_10.x | bash && \
   apt-get -y install nodejs && \
   rm -rf /var/lib/apt/lists/*
 
-#Build gzweb
-RUN git clone -b gzweb_1.4.1 --single-branch https://github.com/osrf/gzweb
-RUN . /usr/share/gazebo/setup.sh 
-RUN cd gzweb && npm run deploy --- -m local
-
 #Make the code required for the container and add it to the entrypoint
 RUN mkdir -p /catkin/src && cd /catkin/src && git clone https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event.git
 RUN bash -c "source /opt/ros/melodic/setup.bash && cd /catkin && catkin_make"
 RUN sed -i 's|^\(source .*\)|\1 \&\& source /catkin/devel/setup.bash|g' /ros_entrypoint.sh
+
+#Build gzweb
+RUN git clone -b gzweb_1.4.1 --single-branch https://github.com/osrf/gzweb
+RUN . /usr/share/gazebo/setup.sh 
+RUN mkdir -p /gzweb/http/client/assets/ && \
+  cp -r /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/models/* /gzweb/http/client/assets/
+RUN cd gzweb && npm run deploy --- -m local
 
 #Map volume location
 VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map","/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/worlds"]
