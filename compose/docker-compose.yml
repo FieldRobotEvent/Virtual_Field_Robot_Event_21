@@ -6,6 +6,7 @@ services:
     hostname: acontainer
     ports:
     - "8080:8080"
+    - "11345:11345"
 
   b_container:
     depends_on:

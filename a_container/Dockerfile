@@ -43,7 +43,7 @@ RUN cd gzweb && npm run deploy --- -m local
 #Map volume location
 VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map","/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/worlds"]
 
-EXPOSE 8080
+EXPOSE 8080 11345
 
 # launch turtlebot and print some gazebo stuff
 #ENV TURTLEBOT3_MODEL=burger
