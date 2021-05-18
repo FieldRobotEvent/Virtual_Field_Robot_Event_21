@@ -35,7 +35,12 @@ RUN cd gzweb && npm run deploy --- -m -t
 # RUN . /usr/share/gazebo/setup.sh && cd gzweb && npm run deploy --- -m local
 #RUN bash -c "source /root/.bashrc && source /usr/share/gazebo/setup.sh && ls"
 
-EXPOSE 8080
+#Map volume location
+VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map"]
+VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/Media"]
+VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/worlds"]
+
+EXPOSE 8080 11345
 
 # launch turtlebot and print some gazebo stuff
 ENV TURTLEBOT3_MODEL=burger
