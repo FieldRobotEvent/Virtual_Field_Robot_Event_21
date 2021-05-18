@@ -53,12 +53,13 @@ VOLUME ["/tmp/.docker.xauth"]
 
 EXPOSE 8080 11345
 
-# Create the maize world and launch it
+# Set env vars for x forwarding
 ENV LIBGL_ALWAYS_SOFTWARE=1
 ENV XAUTHORITY=/tmp/.docker.xauth
 ENV DISPLAY=:0
 ENV QT_X11_NO_MITSHM=1
 
+# create the maize field and launch it
 CMD sh -c "rosrun virtual_maize_field create_task_3_mini.sh" && \
 sh -c "roslaunch virtual_maize_field jackal_simulation.launch"
 # sh -c "roscore"
@@ -67,7 +68,7 @@ sh -c "roslaunch virtual_maize_field jackal_simulation.launch"
 # && \ cd /gzweb && npm start
 # sh -c "roslaunch virtual_maize_field jackal_simulation.launch gui:=false verbose:=true" & \
 # 
-# the problem of th enot working models is potentially related to a mistake in the installation in which the models are copied to the "client/assets" folder. 
+# the problem of the not working models is potentially related to a mistake in the installation in which the models are copied to the "client/assets" folder. 
 # https://answers.gazebosim.org//question/17367/simulated-robot-model-randomly-appears-in-gzweb-gui/
-#################
 # http://gazebosim.org/gzweb#install-collapse-1 
+#################

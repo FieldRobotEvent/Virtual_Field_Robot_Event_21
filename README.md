@@ -1,6 +1,6 @@
 # For competitors
 There are scripts set up to help you deploy containers:
-* ./setup_competition_environment.sh <num> will deploy the containers in a format we expect to use in task <num>
+* ./start_competition_environment.sh <num> will deploy the containers in a format we expect to use in task <num>
 * ./stop_competition_environment.sh <num> will stop all containers from this task. This should be generic, but just in case, there's a num flag too.
 * ./edit_my_container.sh Creates a shell inside the currently running `fre_b_container_1` and allows editing from a terminal.
 * ./save_my_container.sh Saves the currently running `fre_b_container_1` to the image file it came from.
@@ -29,6 +29,10 @@ TODO:
 # Tips and Hints
 * Be careful to wait for your script to wait until the rosmaster is up. Due to the container spawning in (almost) parallel, there's a chance that B will come up before A is completely ready.
 
+# Running the containers
+1. To start the a container, containing the simulation software, run the following command: `docker run -it -p 8080:8080 a_container`. Or run it as a deamon by adding the `-d` argument.
+2. Open a new terminal and and list all docker processes by typing `docker ps`
+3. you can kill a docker process by typing `docker kill <CONTAINER ID>`
 
 # How to Clean up
 * ./cleanup_docker.sh can be used to clean images out.
