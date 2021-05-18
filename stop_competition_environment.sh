@@ -1,13 +1,15 @@
 #!/bin/bash
 if [ -z "$1" ] ; then
-  $1=1
-  echo "Defaulting to task $1"
+TASK=1
+echo "Defaulting to task $TASK"
+else
+TASK=$1
 fi
-echo "Stopping for task $1"
+echo "Stopping for task $TASK"
 
-cd $(dirname $0)/task_${1}
+cd $(dirname $0)/task_${TASK}
 
-echo "Stopping containers for task $1."
+echo "Stopping containers for task $TASK."
 docker-compose -p fre down
 if [ $? -gt 0 ] ; then
   echo "Failed to stop containers?"
