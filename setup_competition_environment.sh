@@ -19,6 +19,7 @@ cd $(dirname $0)/task_${1}
 #docker-compose build
 
 echo 'Starting containers.'
+xhost +local:root #TODO find a safer way to do this (http://wiki.ros.org/docker/Tutorials/GUI) 
 docker-compose -p fre up -d
 if [ $? -gt 0 ] ; then
   echo "Failed to start containers!"
