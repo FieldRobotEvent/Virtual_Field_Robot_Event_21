@@ -41,7 +41,9 @@ RUN sed -i 's|^\(source .*\)|\1 \&\& source /catkin/devel/setup.bash|g' /ros_ent
 # RUN cd gzweb && npm run deploy --- -m local
 
 #Map volume location
-VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map","/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/worlds"]
+VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map"]
+VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/Media"]
+VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/worlds"]
 
 EXPOSE 8080 11345
 
