@@ -1,13 +1,5 @@
 #!/bin/bash
-CONTAINERS=$(docker ps | tail -n +2 | sed 's/  */ /g')
-if echo "$CONTAINERS" | grep compose_a_container_1; then
-    if echo "$CONTAINERS" | grep compose_b_container_1; then
-        echo 'Both containers running!'
-        exit
-    fi
-fi
-
-if [ -z $1 ] ; then
+if [ -z "$1" ] ; then
   $1=1
   echo "Defaulting to task $1"
 fi
