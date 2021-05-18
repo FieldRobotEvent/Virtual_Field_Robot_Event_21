@@ -49,11 +49,13 @@ VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map"]
 VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/Media"]
 VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/worlds"]
 VOLUME ["/tmp/.X11-unix"]
+VOLUME ["/tmp/.docker.xauth"]
 
 EXPOSE 8080 11345
 
 # Create the maize world and launch it
 ENV LIBGL_ALWAYS_SOFTWARE=1
+ENV XAUTHORITY=/tmp/.docker.xauth
 ENV DISPLAY=:0
 ENV QT_X11_NO_MITSHM=1
 
