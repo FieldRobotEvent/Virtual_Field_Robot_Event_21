@@ -15,7 +15,7 @@ services:
   b_container:
     depends_on:
     - "a_container"
-    image: b_container
+    image: b_task_3
     build: ../b_container
     hostname: bcontainer
     volumes:

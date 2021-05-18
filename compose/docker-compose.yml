@@ -3,7 +3,12 @@ services:
   a_container:
     image: a_container
     build: ../a_container
+    container_name: a_container
     hostname: acontainer
+#    volumes:
+#      - "worlds:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/worlds"
+#      - "Media:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/Media"
+#      - "map:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map"
     ports:
     - "8080:8080"
     - "11345:11345"
@@ -13,4 +18,9 @@ services:
     - "a_container"
     image: b_container
     build: ../b_container
+    container_name: b_container
     hostname: bcontainer
+#    volumes:
+#      - "../task_1/map:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map"
+
+#    command: /myscript.sh "2R-3L-4R-1L"
