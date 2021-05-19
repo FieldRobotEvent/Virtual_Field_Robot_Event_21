@@ -64,7 +64,7 @@ We are expecting you to output your map to
 ** /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/pred_map.csv.
 
 # Task 4
-Task 4 is about removing objects. The field will, more or less, look the same as in task 3. We will provide you with a map of locations of weeds and trash, you should move your robot to these locations and pick up the objects. Your robot has to delivered the weeds on the headland of Location_marker_A. The bottles and cans must be delivered on the headland of Location_marker_B. A map of all the locations of all objects, including the reference points, can be found at 
+Task 4 is about removing objects. The field will, more or less, look the same as in task 3. We will provide you with a map of locations of weeds and trash, you should move your robot to these locations and pick up the objects. Your robot has to deliver the weeds on the headland of Location_marker_A. The bottles and cans must be delivered on the headland of Location_marker_B. A map of all the locations of all objects, including the reference points, can be found at 
 ** /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/map.csv 
 and 
 ** /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/map.png
