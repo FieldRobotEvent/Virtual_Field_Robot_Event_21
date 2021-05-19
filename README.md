@@ -43,28 +43,28 @@ TODO:
 
 
 # Task 1
-This task is all about basic navigation. We expect to see you navigate the jackal robot through the crops in curved rows using the associated sensors. The robot has to drive through the curved row, into the next curved row and repeat this process till a 3-minute timer runs out, or till the robot has reached the end of the field. 
+This task is all about basic navigation. We expect to see you navigate the jackal robot through the crops using the associated sensors. The robot has to drive through the curved row, into the next curved row and repeat this process till a 3-minute timer runs out, or till the robot has reached the end of the field. 
 Details: https://www.fieldrobot.com/event/index.php/contest/task-1/
 
 # Task 2
 This advanced navigation task is all about driving through the rows according to a given pattern. E.g. 3L – 2L – 2R – 1R – 5L – F. You can find that order in a file presented in: 
 ** /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/driving_directions.txt. 
-Parse this file and take the specified turns at the headland. The field contains straight rows with missing plants. 
+Parse this file and take the specified turns at the headlands. The field contains straight rows with missing plants. 
 Details: https://www.fieldrobot.com/event/index.php/contest/task-2/
 
 # Task 3/4
 * You can upload your own robot definition. This is a TODO!
 
 # Task 3
-Task 3 is a field mapping task. Traverse the rows and find the weeds/trash, and return a map of locations. The field contains straight rows with missing plants. On the headland, two pillars, with a QR code are located as reference points. We will give you a file with their locations at 
+Task 3 is a field mapping task. Traverse the rows and find the weeds/trash, and return a map of locations. The field contains straight rows with missing plants. On the headlands, two pillars, with a QR code are located as reference points. We will give you a file with their locations at 
 ** /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/markers.csv. 
-The weeds an trash needs to be mapped in the coordinate system of the two location markers. Afterwards, your robot needs to make a .csv file with the locations of the weeds and the bottles/cans. This .csv file must be in the same format as this file: 
+The weeds an trash needs to be mapped in the coordinate system of the two location markers. Your robot needs to make a .csv file with the locations of the weeds and the bottles/cans. This .csv file must be in the same format as this file: 
 ** /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/example_pred_map.csv. 
 We are expecting you to output your map to 
 ** /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/pred_map.csv.
 
 # Task 4
-Task 4 is about removing objects. The field will, more or less, look the same as in task 3. We will provide you with a map of locations of weeds and trash, you should move your robot to these locations and pick up the objects. Your robot has to deliver the weeds on the headland of Location_marker_A. The bottles and cans must be delivered on the headland of Location_marker_B. A map of all the locations of all objects, including the reference points, can be found at 
+Task 4 is about removing objects. The field will, more or less, look the same as in task 3. We will provide you with a map of locations of weeds and trash, you should move your robot to these locations and pick up the objects. Your robot has to deliver the weeds on the headland of Location_marker_A. The bottles and cans must be delivered on the headland of Location_marker_B. A map of all the locations of all objects, including the two location markers, can be found at 
 ** /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/map.csv 
 and 
 ** /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/map.png
