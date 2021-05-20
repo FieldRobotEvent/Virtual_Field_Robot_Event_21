@@ -3,9 +3,14 @@
 from navigation import driver
 from detection import obj_mapper
 import csv
+import rospkg
+import os
 
 # open the location marker file
-with open('/virtual_field_robot_event/task_3/map/markers.csv', 'r') as markers_f:
+pkg_path = rospkg.RosPack().get_path("virtual_maize_field")
+marker_path = os.path.join(pkg_path, "map/markers.csv")
+
+with open(marker_path, 'r') as markers_f:
     marker_reader = csv.reader(markers_f)
     
     print('Markers loaded:')
@@ -19,7 +24,7 @@ driver()
 weed_placements, litter_placements = obj_mapper()
 
 # save the prediction map
-out_map_path = '/virtual_field_robot_event/task_3/map/pred_map.csv'
+out_map_path = os.path.join(pkg_path, 'map/pred_map.csv')
 with open(out_map_path, "w") as f:
     print('writing map')
     writer = csv.writer(f)
