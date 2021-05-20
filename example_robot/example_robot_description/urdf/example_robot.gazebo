@@ -56,11 +56,11 @@
     <turnGravityOff>false</turnGravityOff>
   </gazebo>
   <gazebo reference="front_fender_link">
-    <material>Gazebo/Yellow</material>
+    <material>Gazebo/Red</material>
     <turnGravityOff>false</turnGravityOff>
   </gazebo>
   <gazebo reference="rear_fender_link">
-    <material>Gazebo/Yellow</material>
+    <material>Gazebo/Red</material>
     <turnGravityOff>false</turnGravityOff>
   </gazebo>
 </robot>
