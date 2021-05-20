@@ -5,5 +5,5 @@
 <!--The a_container (runnign the gazebo simulation) will already spawn a model of the jackal robot -->
 
 <!-- run all the scripts that make your robot perform like a champ-->
-  <node pkg="example_robot_brain" type="task_1.py" name="task_1_node" />
+  <node pkg="example_robot_brain" type="task_2.py" name="task_2_node" />
 </launch>

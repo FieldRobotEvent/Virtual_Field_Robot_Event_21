@@ -1,0 +1,10 @@
+<?xml version='1.0'?>
+
+<launch>
+
+<!-- include the script that spawns your custom robot -->
+<include file="$(find example_robot_description)/launch/spawn_example_robot.launch"/>
+
+<!-- run all the scripts that make your robot perform -->
+  <node pkg="example_robot_brain" type="task_3.py" name="task_3_node" />
+</launch>

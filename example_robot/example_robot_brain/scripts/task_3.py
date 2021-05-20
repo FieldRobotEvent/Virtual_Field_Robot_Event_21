@@ -5,7 +5,7 @@ from detection import obj_mapper
 import csv
 
 # open the location marker file
-with open('task_3/map/markers.csv', 'r') as markers_f:
+with open('/virtual_field_robot_event/task_3/map/markers.csv', 'r') as markers_f:
     marker_reader = csv.reader(markers_f)
     
     print('Markers loaded:')
