@@ -1,0 +1,12 @@
+<?xml version='1.0'?>
+
+<launch>
+
+<!--The a_container (runnign the gazebo simulation) will already spawn a model of the jackal robot -->
+
+<!-- include the script that spawns your custom robot -->
+<!-- <include file="$(find example_robot_description)/launch/spawn_example_robot.launch"/> -->
+
+<!-- run all the scripts that make your robot perform -->
+  <node pkg="example_robot" type="task1.py" name="task_1_node" />
+</launch>
