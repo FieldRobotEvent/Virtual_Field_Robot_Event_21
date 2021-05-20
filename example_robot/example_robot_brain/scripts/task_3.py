@@ -19,7 +19,7 @@ driver()
 weed_placements, litter_placements = obj_mapper()
 
 # save the prediction map
-out_map_path = 'task_3/map/pred_map.csv'
+out_map_path = '/virtual_field_robot_event/task_3/map/pred_map.csv'
 with open(out_map_path, "w") as f:
     print('writing map')
     writer = csv.writer(f)
