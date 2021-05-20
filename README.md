@@ -35,11 +35,11 @@ TODO:
 3. you can kill a docker process by typing `docker kill <CONTAINER ID>`
 
 # How to Clean up
-* ./cleanup_docker.sh can be used to clean images out.
-* ./cleanup_docker.sh tidy is a safe command that will remove all unlinked images (and make filesystem space usage less)
-* ./cleanup_docker.sh stop will stop all running containers in case of emergency/disaster
-* ./cleanup_docker.sh rmall will stop and remove all containers. This will make all uncommitted information disappear, and so will prompt.
-* ./cleanup_docker.sh nuke will remove all containers and images and wipe the slate clean. It will prompt before it does this.
+* `./cleanup_docker.sh` can be used to clean images out.
+* `./cleanup_docker.sh tidy` is a safe command that will remove all unlinked images (and make filesystem space usage less)
+* `./cleanup_docker.sh stop` will stop all running containers in case of emergency/disaster
+* `./cleanup_docker.sh rmall` will stop and remove all containers. This will make all uncommitted information disappear, and so will prompt.
+* `./cleanup_docker.sh nuke` will remove all containers and images and wipe the slate clean. It will prompt before it does this.
 
 
 # Task 1
