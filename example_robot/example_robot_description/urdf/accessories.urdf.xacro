@@ -5,9 +5,6 @@
     simulation include it. You must retain compatibility with all of
     the following launch files:
 
-    jackal_viz_fre/launch/view_model.launch
-    jackal_gazebo_fre/launch/jackal_world.launch
-    jackal_base_fre/launch/base.launch
   -->
 
   <!-- Macros to generate standoffs for offset payload mounting. -->

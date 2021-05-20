@@ -9,7 +9,7 @@
   <param name="robot_description"
          command="$(find example_robot_description)/scripts/$(arg env_runner)
                     $(find example_robot_description)/urdf/configs/$(arg config)
-                    $(find xacro)/xacro $(find example_robot_description)/urdf/jackal.urdf.xacro
+                    $(find xacro)/xacro $(find example_robot_description)/urdf/example_robot.urdf.xacro
                     --inorder" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 </launch>

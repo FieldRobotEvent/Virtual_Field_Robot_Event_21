@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="jackal" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="example_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:property name="PI" value="3.1415926535897931" />
 
   <xacro:property name="wheelbase" value="0.262" />
@@ -255,8 +255,5 @@
   <!-- Optional standard accessories, including their simulation data. The rendering
        of these into the final description is controlled by optenv variables, which
        default each one to off.-->
-<!--  <xacro:include filename="$(find example_robot_description)/urdf/accessories.urdf.xacro" /> -->
-
-  <!-- Optional custom includes. -->
-  <xacro:include filename="$(optenv JACKAL_URDF_EXTRAS empty.urdf)" />
+  <xacro:include filename="$(find example_robot_description)/urdf/accessories.urdf.xacro" />
 </robot>
