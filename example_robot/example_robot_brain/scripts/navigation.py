@@ -2,23 +2,27 @@
 # from http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29
 
 import rospy
-from std_msgs.msg import String
 from geometry_msgs.msg import Twist
 
-def talker():
+# a very simple script that just sends the robot forwards for 10 seconds. 
+# We expect that you can come up with a better navigation algorithm
+def driver():
+    print("starting to drive")
+    
     pub = rospy.Publisher('/jackal_velocity_controller/cmd_vel', Twist, queue_size=10)
-    rospy.init_node('my_robot', anonymous=True)
+    rospy.init_node('example_robot_driver', anonymous=True)
     rate = rospy.Rate(10) # 10hz
-    while not rospy.is_shutdown():
-        # hello_str = "hello world %s" % rospy.get_time()
+    
+    for i in range(100):
         msg = Twist()
         msg.linear.x = 1
-        rospy.loginfo(msg)
         pub.publish(msg)
         rate.sleep()
+        
+    print('Done driving')
 
 if __name__ == '__main__':
     try:
-        talker()
+        driver()
     except rospy.ROSInterruptException:
         pass

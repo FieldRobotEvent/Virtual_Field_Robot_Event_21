@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="3">
-  <name>example_robot</name>
+  <name>example_robot_brain</name>
   <version>3.0.0</version>
-  <description>An example to interfer with the gazebo installation.</description>
+  <description>An example to test the gazebo installation.</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->

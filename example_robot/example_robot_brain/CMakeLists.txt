@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(example_robot)
+project(example_robot_brain)
 
 find_package(catkin REQUIRED COMPONENTS rospy roslaunch)
 
