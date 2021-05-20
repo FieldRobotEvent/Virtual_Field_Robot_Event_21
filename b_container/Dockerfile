@@ -3,9 +3,12 @@ FROM ros:melodic-robot
 
 # clone the git repository from your robot into your catkin workspace
 RUN mkdir -p /catkin/src && cd /catkin/src && git clone https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event.git
-
 # Catkin_make your package and source the setup.bash
 RUN bash -c "source /opt/ros/melodic/setup.bash && cd /catkin && catkin_make"
+
+#Example of cloning just one folder and then making it
+#RUN mkdir -p /catkin/src/Virtual_Field_Robot_Event && cd /catkin/src/Virtual_Field_Robot_Event && git init && git remote add origin https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event && git fetch origin && git checkout origin/master -- virtual_maize_field
+#RUN bash -c "source /opt/ros/melodic/setup.bash && cd /catkin && catkin_make"
 
 # add the setup.bash to your ros entrypoint (needed by docker)
 RUN sed -i 's|^\(source .*\)|\1 \&\& source /catkin/devel/setup.bash|g' /ros_entrypoint.sh
