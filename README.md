@@ -7,6 +7,12 @@ This allows you to have as much freedom as you desire in completing the tasks, w
 
 You can find here the Dockerfiles used for creating the A container and some example B containers that could hypothetically be used to compete.
 
+From the B container, the A container rosmaster is present at `http://acontainer:11311`.
+
+For task 1 and 2, the a_container launches the robot model. You only need to communicate with this robot from the B container.
+
+For task 3 and 4 you need to spawn your own robot model in addition to communicating with it.
+
 # Folder Structure
 * a_container : Contains the Dockerfile used for generating the A container. This is for your reference, and is effectively read-only.
 * a_container : Contains the Dockerfile used for generating the example B container. Please read this and use this for generation of your container image.
@@ -16,10 +22,11 @@ You can find here the Dockerfiles used for creating the A container and some exa
 
 # Installation
 * Run (or read and execute the commands in) the 'install.sh' command. This will put your user in the `docker` group. To make this change, you will need to restart.
-* Be advised that this is a security risk, in that your user could gain root shell using the docker pipe this grants you access to. If you intend to use the machine you're installing on after this competition, consider removing the user from group `docker`.
+* Be advised that this is a security risk, in that your user could gain root shell using the docker pipe this grants you access to.
+  * If you intend to use the machine you're installing on after this competition, consider removing the user from group `docker`.
 
 # Example Scripts
-There are scripts set up to help you deploy containers:
+There are scripts provided to help you deploy containers:
 * ./start_competition_environment.sh <num> will deploy the containers in a format we expect to use in task <num>
 * ./stop_competition_environment.sh <num> will stop all containers from this task. This should be generic, but just in case, there's a num flag too.
 * ./edit_my_container.sh Creates a shell inside the currently running `fre_b_container_1` and allows editing from a terminal.
@@ -29,7 +36,7 @@ There are scripts set up to help you deploy containers:
 * ./change_my_start_cmd.sh <cmd> Saves the current b_container to its image, but changes the CMD field to <cmd>.
 
 TODO:
-* ./upload_my_container.sh <num>
+* ./upload_my_container.sh <num> Upload your container to dockerhub.
 
 # Basic container usage
 * Run ./start_competition_environment.sh 1 to set up your containers.
@@ -61,21 +68,22 @@ TODO:
 * `./cleanup_docker.sh rmall` will stop and remove all containers. This will make all uncommitted information disappear, and so will prompt.
 * `./cleanup_docker.sh nuke` will remove all containers and images and wipe the slate clean. It will prompt before it does this.
 
+# Task Descriptions
 
-# Task 1
+## Task 1
 This task is all about basic navigation. We expect to see you navigate the jackal robot through the crops using the associated sensors. The robot has to drive through the curved row, into the next curved row and repeat this process till a 3-minute timer runs out, or till the robot has reached the end of the field. 
 Details: https://www.fieldrobot.com/event/index.php/contest/task-1/
 
-# Task 2
+## Task 2
 This advanced navigation task is all about driving through the rows according to a given pattern. E.g. 3L – 2L – 2R – 1R – 5L – F. You can find that order in a file presented in: 
   * /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/driving_directions.txt. 
 Parse this file and take the specified turns at the headlands. The field contains straight rows with missing plants. 
 Details: https://www.fieldrobot.com/event/index.php/contest/task-2/
 
-# Task 3/4
+## Task 3/4
 * You can upload your own robot definition. This is a TODO!
 
-# Task 3
+## Task 3
 Task 3 is a field mapping task. Traverse the rows and find the weeds/trash, and return a map of locations. The field contains straight rows with missing plants. On the headlands, two pillars, with a QR code are located as reference points. We will give you a file with their locations at 
   * /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/markers.csv. 
 The weeds an trash needs to be mapped in the coordinate system of the two location markers. Your robot needs to make a .csv file with the locations of the weeds and the bottles/cans. This .csv file must be in the same format as this file: 
@@ -83,7 +91,7 @@ The weeds an trash needs to be mapped in the coordinate system of the two locati
 We are expecting you to output your map to 
   * /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/pred_map.csv.
 
-# Task 4
+## Task 4
 Task 4 is about removing objects. The field will, more or less, look the same as in task 3. We will provide you with a map of locations of weeds and trash, you should move your robot to these locations and pick up the objects. Your robot has to deliver the weeds on the headland of Location_marker_A. The bottles and cans must be delivered on the headland of Location_marker_B. A map of all the locations of all objects, including the two location markers, can be found at 
   * /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/map.csv 
 and 
