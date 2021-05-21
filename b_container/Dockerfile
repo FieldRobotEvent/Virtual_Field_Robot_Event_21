@@ -21,6 +21,17 @@ VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/launch"]
 ENV ROS_MASTER_URI=http://acontainer:11311
 
 # launch your robot. The wait command ensures that this launch file waits for the gazebo container to start the ros server. 
-CMD sh -c "roslaunch example_robot example_robot.launch --wait"
+
+# task 1
+# CMD sh -c "roslaunch example_robot_brain task_1.launch --wait --screen"
+
+# task 2
+# CMD sh -c "roslaunch example_robot_brain task_2.launch --wait --screen"
+
+# task 3
+CMD sh -c "roslaunch example_robot_brain task_3.launch --wait --screen"
+
+# task 4
+# CMD sh -c "roslaunch example_robot_brain task_4.launch --wait --screen"
 
 
