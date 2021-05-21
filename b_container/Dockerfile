@@ -1,6 +1,13 @@
 # start with a ros-melodic installation
 FROM ros:melodic-robot
 
+# Robot dependencies (this is the software required by your own robot)
+RUN apt-get update && \
+  apt-get -y install ros-melodic-desktop-full ros-melodic-pointgrey-camera-description && \
+  apt-get -y install ros-melodic-robot-localization ros-melodic-twist-mux && \
+  apt-get -y install ros-melodic-interactive-marker-twist-server ros-melodic-hector-gazebo-plugins && \
+  rm -rf /var/lib/apt/lists/*
+
 # clone the git repository from your robot into your catkin workspace
 RUN mkdir -p /catkin/src && cd /catkin/src && git clone https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event.git
 # Catkin_make your package and source the setup.bash
