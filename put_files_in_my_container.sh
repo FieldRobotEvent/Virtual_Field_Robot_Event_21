@@ -20,4 +20,10 @@ if [ -z "$2" ] ; then
 fi
 
 echo "Copying ${1} into current b container at ${2} ..."
-docker cp "${1}" "fre_b_container_1:${2}"
+if ! docker cp "${1}" "fre_b_container_1:${2}" ; then
+  echo "Looks like your B container died... Starting it temporarily."
+  docker start -a fre_b_container_1 &
+  sleep 4
+  docker cp "${1}" "fre_b_container_1:${2}"
+fi
+
