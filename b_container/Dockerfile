@@ -15,6 +15,7 @@ RUN sed -i 's|^\(source .*\)|\1 \&\& source /catkin/devel/setup.bash|g' /ros_ent
 
 #Mountable location that contains map data for tasks 2/3 and where we expect pred_map.csv to go (in task 2)
 VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map"]
+VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/launch"]
 
 # setup the ros master to communicate with the gazebo container. 
 ENV ROS_MASTER_URI=http://acontainer:11311

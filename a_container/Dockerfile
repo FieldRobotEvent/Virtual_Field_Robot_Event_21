@@ -48,6 +48,7 @@ RUN sed -i 's|^\(source .*\)|\1 \&\& source /catkin/devel/setup.bash|g' /ros_ent
 VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map"]
 VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/Media"]
 VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/worlds"]
+VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/launch"]
 VOLUME ["/tmp/.X11-unix"]
 VOLUME ["/tmp/.docker.xauth"]
 
