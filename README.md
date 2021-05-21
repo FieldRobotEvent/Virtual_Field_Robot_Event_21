@@ -12,7 +12,7 @@ TODO:
 * ./upload_my_container.sh <num>
 
 # Basic container usage
-* Run ./setup_competition_environment.sh 1 to set up your containers.
+* Run ./start_competition_environment.sh 1 to set up your containers.
 * This will construct a new `b_task_1` image for you. If you are not writing a Dockerfile, this will be your target container.
 * Intially, there is an `fre_b_container_1` running container that is spawned from this image.
 * You can edit this container with ./edit_my_container.sh . This will create a shell for you inside the container for constructing it.

@@ -14,6 +14,7 @@ services:
     ports:
     - "8080:8080"
     - "11345:11345"
+    command: sh -c "roslaunch virtual_maize_field simulation.launch paused:=true"
 
   b_container:
     depends_on:
