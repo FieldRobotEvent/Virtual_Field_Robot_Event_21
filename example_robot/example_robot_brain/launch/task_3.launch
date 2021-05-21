@@ -1,0 +1,16 @@
+<?xml version='1.0'?>
+
+<launch>
+
+<!-- include the script that describes your custom robot -->
+<include file="$(find example_robot_description)/launch/spawn_example_robot.launch"/>
+
+<!-- This line will spawn your robot in the correct starting location -->
+<!-- Replace "example_robot" by the name of your robot -->
+<include file="$(find virtual_maize_field)/launch/robot_spawner.launch">
+  <arg name="robot_name" value="example_robot"/>
+</include>
+
+<!-- run all the scripts that make your robot perform -->
+  <node pkg="example_robot_brain" type="task_3.py" name="task_3_node" />
+</launch>
