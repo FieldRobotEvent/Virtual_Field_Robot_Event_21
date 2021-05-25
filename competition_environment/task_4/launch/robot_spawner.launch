@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Spawn Robot -->
+    <arg name="robot_name" default="robot_model" />
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+    args="-urdf -model $(arg robot_name) -param robot_description -x 3.212928 -y -5.269652 -z 0.700000 -R 0 -P 0 -Y 1.532450" /> 
+</launch>

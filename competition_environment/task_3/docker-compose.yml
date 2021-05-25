@@ -1,0 +1,29 @@
+version: '3'
+services:
+  a_container:
+    image: fieldrobotevent/a_container_2021
+    hostname: acontainer
+    volumes:
+      - "./worlds:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/worlds"
+      - "./Media:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/Media"
+      - "./map:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map"
+      - "./launch:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/launch"
+      - "./my_robot:/catkin/src/my_robot"
+      - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
+      - "/tmp/.docker.xauth:/tmp/.docker.xauth:rw"
+    ports:
+    - "8080:8080"
+    - "11345:11345"
+    command: sh -c "roslaunch virtual_maize_field simulation.launch paused:=true"
+
+  b_container:
+    depends_on:
+    - "a_container"
+    image: b_task_3
+    build: ../b_container
+    hostname: bcontainer
+    volumes:
+      # During the competion we will use these exact paths!
+      - "./map:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map"
+      - "./launch:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/launch"
+
