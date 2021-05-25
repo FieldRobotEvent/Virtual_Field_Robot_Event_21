@@ -13,6 +13,8 @@ For task 1 and 2, the a_container launches the robot model. You only need to com
 
 For task 3 and 4 you need to spawn your own robot model in addition to communicating with it.
 
+For the event we expect you to deliver a docker container for each task. During the event we will start the a_container with the simulation world in paused mode and we will start the b_container_<task> that you provided for that specific task. We assume that your b_container automatically starts all your robot code. After startup, we will press the play button in the gazebo GUI, to start the simulation. We then expect the robot to start driving. So you must build your b_container in such a manner that the robot starts to drive when the simulation is started. 
+
 # Folder Structure
 * a_container : Contains the Dockerfile used for generating the A container. This is for your reference, and is effectively read-only.
 * a_container : Contains the Dockerfile used for generating the example B container. Please read this and use this for generation of your container image.
@@ -52,6 +54,56 @@ TODO:
 * Edit your containers/images until you are happy with this.
 * Once you are happy, either upload your container image to hub.docker.io and let the adjudicators know,
   * or dump your image to a tarball with ./dump_my_container.sh <num>
+
+# Example robot tutorial
+This is not a tutorial on docker, but instead is focused on how to implement your robot in our docker environment. When you want to know more about docker we recommend you to search for a docker tutorial. 
+
+During this tutorial we will use the example_robot package from https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event/tree/master/example_robot. This package contains a robot that can perform all 4 tasks of the event. This includes reading the driving directions for task 2, reading the location marker locations for task 3 and outputting a detection map and reading the entire field map for task 4. Please have a look at this package to see how all features are implemented. When looking at the code, also note that you can probably do better and write a robot program that can score more points. 
+
+## Create a b_container. 
+This container has all the software needed to run your robot software. In the folder `b_container` you find an example Dockerfile. This file contains all the instructions needed to build a docker image for the example robot. Please have a look at this file. 
+
+In the first line, a readily made ros-melodic image is pulled from dockerhub. This image already contains a full installation of  Linux, Ubuntu and ROS melodic. After pulling this image, some more dependencies are installed. Note that regular linux commands are used, preceded by the `RUN` tag.  Furthermore, the code for the example robot is pulled from github. Some external volumes are mounted, that are used to provide your robot with information of the map of the field and its spawning location. Finally the field ends in a start command. When starting the docker container, the command after the CMD tag is run. The container stays alive until this command finishes. So if you do not supply a command, or if the command fails to execute, your container will die. 
+
+## Make a task specific container
+For each task you are expected to deliver a docker container. These containers can be completely independent of each-other. However, it is likely that internally you use the same container for every task, but with a different start command. Instead of making a completely new container from scratch, you can also just change the start command. To do this, follow the following steps:
+
+First, start the competition environment for your task, e.g. task 2 by running `bash start_competition_environment.sh 2`. This command will launch the a_container(simulation container) and the b_container(robot container) for task 2. If the b_container for this task does not exist yet, it will create one, based on the dockerfile located in `/b_container` and name this container `b_task_2`. However note that the dockerfile in the b_container directory ends with a launch command to start task 1. This is of course undesired for task 2.
+
+While this container is active, we can change the start CMD by running the command `bash change_my_start_cmd.sh "sh -c \"<my launch command>""` .  To change the start command to start the example robot for task 2, use the following command: `bash change_my_start_cmd.sh "sh -c \"roslaunch example_robot_brain task_2.launch --wait –screen\""`.  The container named b_task_2 will now be equipped with this start command. 
+
+Now stop the competition environment by running `bash stop_competition_environment.sh 2`
+
+start the competition environment again for task 2 by running `bash start_competition_environment.sh 2`. 
+
+When everything works correctly you should see that the robot starts to drive when you press the play button in the gazebo GUI.  To see the terminal output of your robot code, run the command `docker logs fre_b_container_1`. 
+
+## Add your custom robot model to the simulation for task 3 and 4.
+Spawning a robot from the b container in the a_container works out of the box. The sensors are correctly modeled and the control plugins are also correctly loaded. However, the visual part of the robot is not correctly loaded into gazebo because it cannot access the mesh files located on the b_container. This should not be a problem when your robot does not contains meshes. 
+
+To correctly load the visual part of the robot, you need to provide these files to the a_container. 
+In the `task_3` folder, there is a folder named `my_robot`. This folder is mounted in a_container, and the packages in this folder are added to the workspace. In the `my_robot` folder you have to place your robot description. Not the entire packages are needed, you only have to copy the pakcage.xml, CmakeLists.txt and and mesh folder. However the other folders may also be added. You can copy these files from the `example_robot_description`. For the example robot we also also need to copy the visual meshes from the lidar form `example_lms1xx`. The structure now looks as follows (an copy of a correct version of this folder is show in the `task_3_example_robot` folder):
+
+task_3
+|---launch
+|---map
+|---…..
+|---my_robot
+     |---example_robot_description
+          |---meshes
+          |---CMakeLists.txt
+          |---package.xml
+     |---example_lms1xx
+          |---meshes
+          |---CMakeLists.txt
+          |---package.xml
+
+When you want to launch task 3 for the example robot, you need to change the start command of the b_container to `roslaunch example_robot_brain task_2.launch --wait –screen`. How to do this is explained in the section above. 
+
+When starting the competition environment for the example robot, you will see that the robot starts do drive. Afterwards, the robot will output a detection map of the field in the location `task_3/map/pre_map.csv`.
+
+## Submit your robot container to the organization.
+TODO
 
 # Tips and Hints
 * Be careful to wait for your script to wait until the rosmaster is up. Due to the container spawning in (almost) parallel, there's a chance that B will come up before A is completely ready.
