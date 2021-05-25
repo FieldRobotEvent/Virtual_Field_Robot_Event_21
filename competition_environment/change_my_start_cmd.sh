@@ -5,8 +5,7 @@ if echo $CONTAINERS | grep -v fre_b_container_1 ; then
     exit 1
 fi
 
-echo "Now saving the edited b container with an updated start command \"${1}\"..."
 TO_IMG=$(docker ps -a --format '{{ .Names }} {{.Image}}' | grep fre_b_container_1 | cut -d ' ' -f 2)
-echo $TO_IMG
+echo "Now saving the edited b container to image $TO_IMG with an updated start command \"${1}\"..."
 docker commit --change "CMD ${1}" fre_b_container_1 $TO_IMG
 
