@@ -1,8 +1,7 @@
 version: '3'
 services:
   a_container:
-    image: a_container
-    build: ../a_container
+    image: fieldrobotevent/a_container_2021
     hostname: acontainer
     volumes:
       - "./worlds:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/worlds"
