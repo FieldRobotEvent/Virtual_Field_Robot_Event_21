@@ -25,4 +25,5 @@ services:
       # During the competion we will use these exact paths!
       - "./map:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map"
       - "./launch:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/launch"
+      - "./my_robot:catkin/src/my_robot"
 
