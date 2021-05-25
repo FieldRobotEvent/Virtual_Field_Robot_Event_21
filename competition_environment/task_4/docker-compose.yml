@@ -8,6 +8,7 @@ services:
       - "./Media:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/Media"
       - "./map:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map"
       - "./launch:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/launch"
+      - "./my_robot:/catkin/src/my_robot"
       - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
       - "/tmp/.docker.xauth:/tmp/.docker.xauth:rw"
     ports:

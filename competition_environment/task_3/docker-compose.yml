@@ -1,6 +1,8 @@
 version: '3'
 services:
   a_container:
+#    image: a_container
+    build: ../a_container
     image: fieldrobotevent/a_container_2021
     hostname: acontainer
     volumes:
@@ -8,6 +10,7 @@ services:
       - "./Media:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/Media"
       - "./map:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map"
       - "./launch:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/launch"
+      - "./my_robot:/catkin/src/my_robot"
       - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
       - "/tmp/.docker.xauth:/tmp/.docker.xauth:rw"
     ports:
@@ -25,5 +28,4 @@ services:
       # During the competion we will use these exact paths!
       - "./map:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map"
       - "./launch:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/launch"
-      - "./my_robot:catkin/src/my_robot"
 
