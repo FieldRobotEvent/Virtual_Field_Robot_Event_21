@@ -11,6 +11,8 @@ This meta repository contains all the custom ROS packages needed for the FRE.
 ## ROS Packages
  - [Virtual Maize Field](virtual_maize_field/README.md)
  - [jackal_fre](jackal_fre/README.md)
+ - [example_robot](example_robot/README.md)
+ - [competition_environment](competition_environment/README.md)
  
 ## Short task descriptions
 The tasks are from https://www.fieldrobot.com/event/index.php/contest/. The simulated world constructors can be found in `virtual_maize_field/scripts`. The [Virtual Maize Field README](virtual_maize_field/README.md) gives a description of the world constructors and instructions on how to use these. 
