@@ -1,98 +1,55 @@
-# Description
-This folder contains all the components used in deploying the competition environment.
+# Virtual Field Robot Event 
 
-# Competition Environment
-During the competition, there will be two containers - the A container, running rosmaster and gazebo, and the B container, running your code.
-This allows you to have as much freedom as you desire in completing the tasks, without any risk of having mixed dependencies (such as ROS/ROS2) interfering with your solution.
+<p float="left" align="middle">
+  <img src="https://www.fieldrobot.com/event/wp-content/uploads/2021/01/FRE-logo-v02.png" width="250" style="margin: 10px;"> 
+  <img src="https://www.wur.nl/upload/58340fb4-e33a-4d0b-af17-8d596fa93663_WUR_RGB_standard.png" width="250" style="margin: 10px;"> 
+  <img src="https://www.uni-hohenheim.de/typo3conf/ext/uni_layout/Resources/Public/Images/uni-logo-en.svg" width="250" style="margin: 10px;">
+</p>
 
-You can find here the Dockerfiles used for creating the A container and some example B containers that could hypothetically be used to compete.
+This meta repository contains all the custom ROS packages needed for the FRE.
 
-From the B container, the A container rosmaster is present at `http://acontainer:11311`.
+## ROS Packages
+ - [Virtual Maize Field](virtual_maize_field/README.md)
+ - [jackal_fre](jackal_fre/README.md)
+ 
+## Short task descriptions
+The tasks are from https://www.fieldrobot.com/event/index.php/contest/. The simulated world constructors can be found in `virtual_maize_field/scripts`. The [Virtual Maize Field README](virtual_maize_field/README.md) gives a description of the world constructors and instructions on how to use these. 
 
-For task 1 and 2, the a_container launches the robot model. You only need to communicate with this robot from the B container.
+| Task | Description |
+|:---- |:----------- |
+|*Task_1*|The field contains curved rows. The robot has to drive through the row, into the next row and repeat this process till a 3-minute timer runs out, or till the robot has reached the end of the field. Details: https://www.fieldrobot.com/event/index.php/contest/task-1/|
+|*Task_2*|The field contains straight rows with missing plants. The Robot has to drive through the rows according to a given pattern. E.g. 3L – 2L – 2R – 1R – 5L – F. Details: https://www.fieldrobot.com/event/index.php/contest/task-2/|
+|*Task_3*|The field contains straight rows with missing plants. On the headland, two pillars, with a QR code are located. The QR code on one pillar says `Location_marker_A`, and the QR code on the other pillar says `Location_marker_B`. The location of these pillars is given by the map generator in the file `virtual_maize_field/map/markers.csv`. Throughout the field, there are 4 or 5 weeds and 4 or 5 cans/bottles. These objects are “ghost” objects, meaning that they are visible, but they don’t have a collision box and cannot be moved. These objects need to be mapped in the coordinate system of the two location markers. Afterwards, your robot needs to make a .csv file with the locations of the weeds and the bottles/cans. This .csv file must be in the same format as the file located in `virtual_maize_field/map/example_pred_map.csv`. Using the script `virtual_maize_field/scripts/compare_maps.py`, the locations of your detections can be compared to the ground truth locations of the objects, and you will get a score for your map. In the location `virtual_maize_field/map/evaluation_map.png` you will find a map containing your detections, the ground truth detections, and your map score. Details: https://www.fieldrobot.com/event/index.php/contest/task-3/|
+|*Task_4*|The field looks the same as in task 3, however, the weeds, cans, and bottles have a collision box and can be moved by your robot. At the beginning of the task, you will get a map of the field. The map is located in `virtual_maize_field/map/map.csv`, and `virtual_maize_field/map/map.png`. The map contains the ground truth location of all the plants, location markers, weeds, cans, and bottles. You can use this map for optimal path planning. During this task, the robot has to pick up the weeds and drop them on the headland of `Location_marker_A`. The bottles and cans also need to be picked up and dropped on the headland of `Location_marker_B`. Details: https://www.fieldrobot.com/event/index.php/contest/task-4/|
 
-For task 3 and 4 you need to spawn your own robot model in addition to communicating with it.
+## FRE Setup - Installation
+1.	Get a computer with ubuntu 18.04*. If you do not have a ubuntu 18.04 machine, you can install a virtual machine following the bullet points below. If you already have an ubuntu 18.04 machine you can skip to step 2.
+	* Download and install VM ware from the VMware website: https://my.vmware.com/en/web/vmware/downloads/details?downloadGroup=PLAYER-1600&productId=1039&rPId=51984. Download "VMware Workstation 16.0.0 Player for Windows" if you are using a windows computer. Within VMware we install a virtual Linux computer. 
+	* Create a new virtual machine using VMware
+		* Change the configuration about the number of CPU cores used, the max number of RAM to use and the max allowable hard disk space. 
+	* Select ubuntu 18.04 as iso. https://releases.ubuntu.com/18.04.5/ubuntu-18.04.5-desktop-amd64.iso 
+2.	Open a terminal(Ctrl + Alt + T) and type `sudo apt install git` to install git
+3.	Create a catkin workspace and move into it `mkdir -p ~/catkin_ws/src && cd ~/catkin_ws/src`.
+4.	While in this folder, clone the FRE git repository by typing `git clone https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event` in the terminal. This will create a folder  named ‘Virtual_Field_Robot_Event’, containing all the files need to run the simulation.
+5.	Install all required software by typing `sudo bash -i ~/catkin_ws/src/Virtual_Field_Robot_Event/install_requirements.sh`.
+6.	After the installation type `source ~/.bashrc && cd ~/catkin_ws && catkin_make && source ~/.bashrc` in the terminal.
+7.	You can now create a new simulation world by running `rosrun virtual_maize_field create_task_1_mini.sh`. 
+8.	You can run the simulation by running `roslaunch virtual_maize_field jackal_simulation.launch`. 
+9. 	You can control the robot, and see the sensor output using `roslaunch jackal_viz view_robot.launch`. If you encounter any errors, we refer you to the troubleshooting section. 
+10.	The robot used in the simulation is the Clearpath Jackal, you can find detailed instructions and documentation at http://www.clearpathrobotics.com/assets/guides/kinetic/jackal/simulation.html. Be aware that the Jackal comes with a GPS but that the use of a GNSS receiver is not allowed except for the Free Style in Task 5. The focus for the other tasks in terms of localisation shall be on relative positioning and sensor based behaviours.
 
-# Folder Structure
-* a_container : Contains the Dockerfile used for generating the A container. This is for your reference, and is effectively read-only.
-* a_container : Contains the Dockerfile used for generating the example B container. Please read this and use this for generation of your container image.
-* task_1/2/3/4 : Each folder is used for the task competition environments. Each contains:
-  * docker-compose.yml : The docker-compose.yml file that will be used to launch your container in a competition environment
-  * map/world/launch folders : Folders that contain an example world used for competing
+*) Feel free to use other versions of Ubuntu, ROS, packages and other software. We have only tested the above versions and software.
 
-# Installation
-* Run (or read and execute the commands in) the 'install.sh' command. This will put your user in the `docker` group. To make this change, you will need to restart.
-* Be advised that this is a security risk, in that your user could gain root shell using the docker pipe this grants you access to.
-  * If you intend to use the machine you're installing on after this competition, consider removing the user from group `docker`.
+### Trouble shooting
+* If you encounter the error: 'VMware: vmw_ioctl_command error Invalid argument.’ When launching gazebo. Then you should type `echo "export SVGA_VGPU10=0" >> ~/.profile` in the terminal and reboot your (virtual) machine. 
+* If you encounter the error ‘Error in REST request’ when launching gazebo. Then you should open `~/.ignition/fuel/config.yaml` and change the line: ‘url: https://api.ignitionfuel.org’ to ‘url:  https://api.ignitionrobotics.org’.
+* If the lidar data on the topic `front/scan` only returns ranges with the value `inf`, even though in simulation the lidar should ‘see’ certain objects within its range, you have to run `export LIBGL_ALWAYS_SOFTWARE=1` in the terminal in which you launch gazebo. You have to run this command before starting gazebo. This solves the problem with the lidar, but might have some consequences on the rendering speed of gazebo. 
 
-# Example Scripts
-There are scripts provided to help you deploy containers:
-* ./start_competition_environment.sh <num> will deploy the containers in a format we expect to use in task <num>
-* ./stop_competition_environment.sh <num> will stop all containers from this task. This should be generic, but just in case, there's a num flag too.
-* ./edit_my_container.sh Creates a shell inside the currently running `fre_b_container_1` and allows editing from a terminal.
-* ./save_my_container.sh Saves the currently running `fre_b_container_1` to the image file it came from.
-* ./dump_my_container.sh <num> dumps a gzipped tarball of that container to b_task_<num>.tgz for upload.
-* ./put_files_in_my_container.sh <src> <dst> allows you to copy files locally into the current b container for editing/saving.
-* ./change_my_start_cmd.sh <cmd> Saves the current b_container to its image, but changes the CMD field to <cmd>.
 
-TODO:
-* ./upload_my_container.sh <num> Upload your container to dockerhub.
 
-# Basic container usage
-* Run ./start_competition_environment.sh 1 to set up your containers.
-* This will construct a new `b_task_1` image for you. If you are not writing a Dockerfile, this will be your target container.
-* Intially, there is an `fre_b_container_1` running container that is spawned from this image.
-* You can edit this container with ./edit_my_container.sh . This will create a shell for you inside the container for constructing it.
-* Once you are happy with your code in the container, save it to the image with ./save_my_container.sh
-* Should you want to copy code into your container, do ./put_files_in_my_container.sh <src> <dst> .
-* As you can see from the Dockerfile, we are expecting the B container to start with the command:
-  * sh -c "roslaunch example_robot example_robot.launch --wait"
-* You can edit this with the ./change_my_start_cmd.sh <cmd> script. (this will save to the image)
-* If you then re-run ./setup_competition_environment.sh 1 , your container will start up in the configuration as expected in the competition.
-* Edit your containers/images until you are happy with this.
-* Once you are happy, either upload your container image to hub.docker.io and let the adjudicators know,
-  * or dump your image to a tarball with ./dump_my_container.sh <num>
 
-# Tips and Hints
-* Be careful to wait for your script to wait until the rosmaster is up. Due to the container spawning in (almost) parallel, there's a chance that B will come up before A is completely ready.
 
-# Running the containers
-1. To start the a container, containing the simulation software, run the following command: `docker run -it -p 8080:8080 a_container`. Or run it as a deamon by adding the `-d` argument.
-2. Open a new terminal and and list all docker processes by typing `docker ps`
-3. you can kill a docker process by typing `docker kill <CONTAINER ID>`
 
-# How to Clean up
-* `./cleanup_docker.sh` can be used to clean images out.
-* `./cleanup_docker.sh tidy` is a safe command that will remove all unlinked images (and make filesystem space usage less)
-* `./cleanup_docker.sh stop` will stop all running containers in case of emergency/disaster
-* `./cleanup_docker.sh rmall` will stop and remove all containers. This will make all uncommitted information disappear, and so will prompt.
-* `./cleanup_docker.sh nuke` will remove all containers and images and wipe the slate clean. It will prompt before it does this.
 
-# Task Descriptions
 
-## Task 1
-This task is all about basic navigation. We expect to see you navigate the jackal robot through the crops using the associated sensors. The robot has to drive through the curved row, into the next curved row and repeat this process till a 3-minute timer runs out, or till the robot has reached the end of the field. 
-Details: https://www.fieldrobot.com/event/index.php/contest/task-1/
 
-## Task 2
-This advanced navigation task is all about driving through the rows according to a given pattern. E.g. 3L – 2L – 2R – 1R – 5L – F. You can find that order in a file presented in: 
-  * /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/driving_directions.txt. 
-Parse this file and take the specified turns at the headlands. The field contains straight rows with missing plants. 
-Details: https://www.fieldrobot.com/event/index.php/contest/task-2/
-
-## Task 3/4
-* You can upload your own robot definition. This is a TODO!
-
-## Task 3
-Task 3 is a field mapping task. Traverse the rows and find the weeds/trash, and return a map of locations. The field contains straight rows with missing plants. On the headlands, two pillars, with a QR code are located as reference points. We will give you a file with their locations at 
-  * /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/markers.csv. 
-The weeds an trash needs to be mapped in the coordinate system of the two location markers. Your robot needs to make a .csv file with the locations of the weeds and the bottles/cans. This .csv file must be in the same format as this file: 
-  * /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/example_pred_map.csv. 
-We are expecting you to output your map to 
-  * /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/pred_map.csv.
-
-## Task 4
-Task 4 is about removing objects. The field will, more or less, look the same as in task 3. We will provide you with a map of locations of weeds and trash, you should move your robot to these locations and pick up the objects. Your robot has to deliver the weeds on the headland of Location_marker_A. The bottles and cans must be delivered on the headland of Location_marker_B. A map of all the locations of all objects, including the two location markers, can be found at 
-  * /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/map.csv 
-and 
-  * /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/map.png
