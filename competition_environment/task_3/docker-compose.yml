@@ -1,8 +1,6 @@
 version: '3'
 services:
   a_container:
-#    image: a_container
-    build: ../a_container
     image: fieldrobotevent/a_container_2021
     hostname: acontainer
     volumes:
