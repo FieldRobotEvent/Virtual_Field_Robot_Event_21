@@ -17,7 +17,7 @@ For the event we expect you to deliver a docker container for each task. During 
 
 # Folder Structure
 * a_container : Contains the Dockerfile used for generating the A container. This is for your reference, and is effectively read-only.
-* a_container : Contains the Dockerfile used for generating the example B container. Please read this and use this for generation of your container image.
+* b_container : Contains the Dockerfile used for generating the example B container. Please read this and use this for generation of your container image.
 * task_1/2/3/4 : Each folder is used for the task competition environments. Each contains:
   * docker-compose.yml : The docker-compose.yml file that will be used to launch your container in a competition environment
   * map/world/launch folders : Folders that contain an example world used for competing
@@ -83,20 +83,21 @@ Spawning a robot from the b container in the a_container works out of the box. T
 
 To correctly load the visual part of the robot, you need to provide these files to the a_container. 
 In the `task_3` folder, there is a folder named `my_robot`. This folder is mounted in a_container, and the packages in this folder are added to the workspace. In the `my_robot` folder you have to place your robot description. Not the entire packages are needed, you only have to copy the pakcage.xml, CmakeLists.txt and and mesh folder. However the other folders may also be added. You can copy these files from the `example_robot_description`. For the example robot we also also need to copy the visual meshes from the lidar form `example_lms1xx`. The structure now looks as follows (an copy of a correct version of this folder is show in the `task_3_example_robot` folder):
-
-task_3
-|---launch
-|---map
-|---…..
-|---my_robot
-     |---example_robot_description
-          |---meshes
-          |---CMakeLists.txt
-          |---package.xml
-     |---example_lms1xx
-          |---meshes
-          |---CMakeLists.txt
-          |---package.xml
+```
+<task_3>
+├──launch
+├──map
+├──…..
+└──my_robot
+   └──example_robot_description
+      ├──meshes
+      ├──CMakeLists.txt
+      ├──package.xml
+   └──example_lms1xx
+      ├──meshes
+      ├──CMakeLists.txt
+      ├──package.xml
+```
 
 When you want to launch task 3 for the example robot, you need to change the start command of the b_container to `roslaunch example_robot_brain task_2.launch --wait –screen`. How to do this is explained in the section above. 
 
@@ -131,9 +132,6 @@ This advanced navigation task is all about driving through the rows according to
   * /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/driving_directions.txt. 
 Parse this file and take the specified turns at the headlands. The field contains straight rows with missing plants. 
 Details: https://www.fieldrobot.com/event/index.php/contest/task-2/
-
-## Task 3/4
-* You can upload your own robot definition. This is a TODO!
 
 ## Task 3
 Task 3 is a field mapping task. Traverse the rows and find the weeds/trash, and return a map of locations. The field contains straight rows with missing plants. On the headlands, two pillars, with a QR code are located as reference points. We will give you a file with their locations at 
