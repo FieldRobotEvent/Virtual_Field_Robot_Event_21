@@ -17,7 +17,7 @@ For the event we expect you to deliver a docker container for each task. During 
 
 # Folder Structure
 * a_container : Contains the Dockerfile used for generating the A container. This is for your reference, and is effectively read-only.
-* a_container : Contains the Dockerfile used for generating the example B container. Please read this and use this for generation of your container image.
+* b_container : Contains the Dockerfile used for generating the example B container. Please read this and use this for generation of your container image.
 * task_1/2/3/4 : Each folder is used for the task competition environments. Each contains:
   * docker-compose.yml : The docker-compose.yml file that will be used to launch your container in a competition environment
   * map/world/launch folders : Folders that contain an example world used for competing
