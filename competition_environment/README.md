@@ -133,9 +133,6 @@ This advanced navigation task is all about driving through the rows according to
 Parse this file and take the specified turns at the headlands. The field contains straight rows with missing plants. 
 Details: https://www.fieldrobot.com/event/index.php/contest/task-2/
 
-## Task 3/4
-* You can upload your own robot definition. This is a TODO!
-
 ## Task 3
 Task 3 is a field mapping task. Traverse the rows and find the weeds/trash, and return a map of locations. The field contains straight rows with missing plants. On the headlands, two pillars, with a QR code are located as reference points. We will give you a file with their locations at 
   * /catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map/markers.csv. 
