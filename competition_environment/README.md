@@ -89,7 +89,7 @@ In the `task_3` folder, there is a folder named `my_robot`. This folder is mount
 ├──launch
 ├──map
 ├──…..
-├──my_robot
+└──my_robot
    └──example_robot_description
       ├──meshes
       ├──CMakeLists.txt
