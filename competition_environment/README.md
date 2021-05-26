@@ -83,7 +83,6 @@ Spawning a robot from the b container in the a_container works out of the box. T
 
 To correctly load the visual part of the robot, you need to provide these files to the a_container. 
 In the `task_3` folder, there is a folder named `my_robot`. This folder is mounted in a_container, and the packages in this folder are added to the workspace. In the `my_robot` folder you have to place your robot description. Not the entire packages are needed, you only have to copy the pakcage.xml, CmakeLists.txt and and mesh folder. However the other folders may also be added. You can copy these files from the `example_robot_description`. For the example robot we also also need to copy the visual meshes from the lidar form `example_lms1xx`. The structure now looks as follows (an copy of a correct version of this folder is show in the `task_3_example_robot` folder):
-
 ```
 <task_3>
 ├──launch
