@@ -10,7 +10,7 @@ dp_path = os.path.join(pkg_path, "map/driving_pattern.txt")
 
 with open(dp_path) as direction_f:
     directions = direction_f.readline()
-    
-print('driving directions are: %s' % directions)
+
+print("driving directions are: %s" % directions)
 
 driver()
