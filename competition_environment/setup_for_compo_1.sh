@@ -44,5 +44,8 @@ docker run -d \
   --name "$B_NAME" \
   -h bcontainer \
   --network "$NETNAME" \
+  --cpu-quota 100000 \
+  --cpu-period 10000 \
+  --memory 48g \
   "$B_IMAGENAME"
 fi
