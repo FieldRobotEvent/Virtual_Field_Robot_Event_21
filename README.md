@@ -34,11 +34,12 @@ The tasks are from https://www.fieldrobot.com/event/index.php/contest/. The simu
 3.	Create a catkin workspace and move into it `mkdir -p ~/catkin_ws/src && cd ~/catkin_ws/src`.
 4.	While in this folder, clone the FRE git repository by typing `git clone https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event` in the terminal. This will create a folder  named ‘Virtual_Field_Robot_Event’, containing all the files need to run the simulation.
 5.	Install all required software by typing `sudo bash -i ~/catkin_ws/src/Virtual_Field_Robot_Event/install_requirements.sh`.
-6.	After the installation type `source ~/.bashrc && cd ~/catkin_ws && catkin_make && source ~/.bashrc` in the terminal.
-7.	You can now create a new simulation world by running `rosrun virtual_maize_field create_task_1_mini.sh`. 
-8.	You can run the simulation by running `roslaunch virtual_maize_field jackal_simulation.launch`. 
-9. 	You can control the robot, and see the sensor output using `roslaunch jackal_viz view_robot.launch`. If you encounter any errors, we refer you to the troubleshooting section. 
-10.	The robot used in the simulation is the Clearpath Jackal, you can find detailed instructions and documentation at http://www.clearpathrobotics.com/assets/guides/kinetic/jackal/simulation.html. Be aware that the Jackal comes with a GPS but that the use of a GNSS receiver is not allowed except for the Free Style in Task 5. The focus for the other tasks in terms of localisation shall be on relative positioning and sensor based behaviours.
+6.	After the installation type `source ~/.bashrc`
+7.	Run `cd ~/catkin_ws && catkin_make && source ~/.bashrc` in the terminal.
+8.	You can now create a new simulation world by running `rosrun virtual_maize_field create_task_1_mini.sh`. 
+9.	You can run the simulation by running `roslaunch virtual_maize_field jackal_simulation.launch`. 
+10. 	You can control the robot, and see the sensor output using `roslaunch jackal_viz view_robot.launch`. If you encounter any errors, we refer you to the troubleshooting section. 
+11.	The robot used in the simulation is the Clearpath Jackal, you can find detailed instructions and documentation at http://www.clearpathrobotics.com/assets/guides/kinetic/jackal/simulation.html. Be aware that the Jackal comes with a GPS but that the use of a GNSS receiver is not allowed except for the Free Style in Task 5. The focus for the other tasks in terms of localisation shall be on relative positioning and sensor based behaviours.
 
 *) Feel free to use other versions of Ubuntu, ROS, packages and other software. We have only tested the above versions and software.
 

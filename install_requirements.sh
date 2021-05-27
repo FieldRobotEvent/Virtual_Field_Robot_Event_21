@@ -34,8 +34,10 @@ sudo apt-get -y install ros-melodic-interactive-marker-twist-server
 sudo apt-get -y install ros-melodic-hector-gazebo-plugins
 
 # needed for the virtual maize field
-sudo apt -y install python3-pip
-sudo pip3 install -U jinja2 rospkg opencv matplotlib shapely
+sudo apt -y install python-pip python3-pip
+sudo pip install -U pip && pip3 install -U pip
+sudo pip install -U jinja2 rospkg
+sudo pip3 install -U jinja2 rospkg opencv-python matplotlib shapely
 
 # add ros to the bashrc
 grep -q -F "source /opt/ros/melodic/setup.bash" ~/.bashrc || echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
