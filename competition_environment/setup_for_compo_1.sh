@@ -4,14 +4,19 @@
 
 #/etc/docker/daemon.json still uses the default runtime as 'nvidia'. We probably need to test that one out...
 
-MYPATH=$(readlink -f $(dirname $0))
-
 NETNAME=fre_default
+A_IMAGENAME=fieldrobotevent/a_container_2021
+B_IMAGENAME=b_task_1
+A_NAME=fre_a_container_1
+B_NAME=fre_b_container_1
+
+MYPATH=$(readlink -f $(dirname $0))
+xauth nlist :0 | sed -e 's/^..../ffff/' | xauth -f /tmp/.docker.xauth nmerge -
+
 if ! docker network ls --format "{{.Name}}" | grep "$NETNAME" ; then
   docker network create "$NETNAME"
 fi
 
-A_NAME=fre_a_container_1
 if ! docker ps --format "{{.Names}}" | grep "$A_NAME" ; then
 docker run -d \
   --name "$A_NAME" \
@@ -22,20 +27,18 @@ docker run -d \
   -v "${MYPATH}/task_1/launch:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/launch" \
   -v "/tmp/.X11-unix:/tmp/.X11-unix:rw" \
   -v "/tmp/.docker.xauth:/tmp/.docker.xauth:rw" \
-  -e "DISPLAY=:1" \
+  -e "DISPLAY=$DISPLAY" \
   -e "NVIDIA_DRIVER_CAPABILITIES=all" \
   --runtime nvidia \
   --gpus all \
   --network "$NETNAME" \
-  fieldrobotevent/a_container_2021
+  "$A_IMAGENAME"
 fi
 
-B_IMAGENAME=b_task_1
 if ! docker images --format "{{.Repository}}" | grep "$B_IMAGENAME" ; then
   cd b_container && docker build -t "$B_IMAGENAME" . && cd
 fi
 
-B_NAME=fre_b_container_1
 if ! docker ps --format "{{.Names}}" | grep "$B_NAME" ; then
 docker run -d \
   --name "$B_NAME" \
