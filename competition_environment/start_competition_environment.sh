@@ -5,11 +5,9 @@ echo "Defaulting to task $TASK"
 else
 TASK=$1
 fi
-echo "Stopping for task $TASK"
+echo "Starting for task $TASK"
 
-#We installed nvidia-docker to get access to the nvidia runtime. This allows the gpu cards to be mounted inside the containers.
-
-#/etc/docker/daemon.json still uses the default runtime as 'nvidia'. We probably need to test that one out...
+#We installed nvidia-docker2 to get access to the nvidia runtime. This allows the gpu cards to be mounted inside the containers.
 
 NETNAME=fre_default
 A_IMAGENAME=fieldrobotevent/a_container_2021
