@@ -54,19 +54,19 @@
   <!-- If enabled, generate the flea3 camera payload with a tilt of 30 degrees. -->
   <xacro:if value="$(optenv JACKAL_FLEA3 0)">
     <xacro:camera_mount prefix="$(optenv JACKAL_FLEA3_MOUNT front)"
-                       tilt="$(optenv JACKAL_FLEA3_TILT 0.5236)"/>
+                       tilt="$(optenv JACKAL_FLEA3_TILT 0.1745)"/><!--changed to 10 degrees-->
     <joint name="$(optenv JACKAL_FLEA3_MOUNT front)_camera_mount_joint" type="fixed">
-      <origin xyz="$(optenv JACKAL_FLEA3_OFFSET 0 0 0)"
+      <origin xyz="$(optenv JACKAL_FLEA3_OFFSET 0.03 0 0)"
               rpy="$(optenv JACKAL_FLEA3_RPY 0 0 0)" />
       <parent link="$(optenv JACKAL_FLEA3_MOUNT front)_mount" />
       <child link="$(optenv JACKAL_FLEA3_MOUNT front)_camera_mount" />
     </joint>
 
     <xacro:pointgrey_flea3 frame="$(optenv JACKAL_FLEA3_MOUNT front)_camera" name="$(optenv JACKAL_FLEA3_NAME front)"
-      camera_x="0.0754" camera_y="0.029" camera_z="0.029"
-      camera_mass="0.085" hfov="1.0471975512" fps="60" width="640" height="512"/>
+      camera_x="0.01" camera_y="0.05" camera_z="0.03"
+      camera_mass="0.085" hfov="1.0471975512" fps="10" width="640" height="480"/>
     <joint name="$(optenv JACKAL_FLEA3_MOUNT front)_camera_bracket_joint" type="fixed">
-      <origin xyz="0.020 0 0.0245" rpy="0 0 0" />
+      <origin xyz="0.010 0 0.0" rpy="0 0 0" />
       <parent link="$(optenv JACKAL_FLEA3_MOUNT front)_camera_beam" />
       <child link="$(optenv JACKAL_FLEA3_MOUNT front)_camera" />
     </joint>
