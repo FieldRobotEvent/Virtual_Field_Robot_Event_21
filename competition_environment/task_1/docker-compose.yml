@@ -1,4 +1,4 @@
-version: '3'
+version: '2.3'
 services:
   a_container:
     image: fieldrobotevent/a_container_2021
@@ -13,6 +13,9 @@ services:
     ports:
     - "8080:8080"
     - "11345:11345"
+    environment:
+    - "DISPLAY=:1"
+    - "NVIDIA_DRIVER_CAPABILITIES=all"
 
   b_container:
     depends_on:

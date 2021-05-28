@@ -1,16 +1,21 @@
 #!/bin/bash
-if [ -z "$1" ] ; then
-TASK=1
-echo "Defaulting to task $TASK"
-else
-TASK=$1
-fi
-echo "Stopping for task $TASK"
 
-cd $(dirname $0)/task_${TASK}
+#A simple script to stop and remove containers, as docker-compose down would
+NETNAME=fre_default
+A_NAME=fre_a_container_1
+B_NAME=fre_b_container_1
 
-echo "Stopping containers for task $TASK."
-docker-compose -p fre down
-if [ $? -gt 0 ] ; then
-  echo "Failed to stop containers?"
+if docker ps --format "{{.Names}}" | grep "$A_NAME" ; then
+  docker stop "$A_NAME"
+  docker rm "$A_NAME"
 fi
+
+if docker ps --format "{{.Names}}" | grep "$B_NAME" ; then
+  docker stop "$B_NAME"
+  docker rm "$B_NAME"
+fi
+
+if docker network ls --format "{{.Name}}" | grep "$NETNAME" ; then
+  docker network rm "$NETNAME"
+fi
+
