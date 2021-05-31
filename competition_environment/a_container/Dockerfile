@@ -3,7 +3,8 @@ FROM ros:melodic-robot
 LABEL org.opencontainers.image.authors="Field Robot Event Team <fieldrobot.events@wur.nl>"
 
 #Competition dependencies
-RUN apt-get update && \
+RUN apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654 && \
+  apt-get update && \
   apt-get -y install ros-melodic-desktop-full ros-melodic-pointgrey-camera-description && \
   apt-get -y install ros-melodic-robot-localization ros-melodic-twist-mux && \
   apt-get -y install ros-melodic-interactive-marker-twist-server ros-melodic-hector-gazebo-plugins && \
@@ -14,7 +15,8 @@ RUN pip install -U jinja2 rospkg
 RUN pip3 install numpy jinja2 rospkg opencv-python matplotlib shapely
 
 #Plain gazebo requirements
-RUN apt-get update && \
+RUN apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654 && \
+  apt-get update && \
   apt-get -y install ros-melodic-gazebo-ros-pkgs && \
   apt-get -y install ros-melodic-gazebo-ros-control && \
   rm -rf /var/lib/apt/lists/*
