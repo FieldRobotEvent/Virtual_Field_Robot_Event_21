@@ -6,14 +6,14 @@ from geometry_msgs.msg import Twist
 
 # a very simple script that just sends the robot forwards for 10 seconds.
 # We expect that you can come up with a better navigation algorithm
-def driver():
+def driver(duration=10):
     print("starting to drive")
 
     pub = rospy.Publisher("/jackal_velocity_controller/cmd_vel", Twist, queue_size=10)
     rospy.init_node("example_robot_driver", anonymous=True)
     rate = rospy.Rate(10)  # 10hz
 
-    for i in range(100):
+    for i in range(duration*10):
         msg = Twist()
         msg.linear.x = 1
         pub.publish(msg)
