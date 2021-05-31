@@ -18,5 +18,6 @@ echo "This script will dump the committed b_task_$TASK image to a file. Be aware
 sleep 2
 
 echo "Dumping b_task_$TASK to b_task_${TASK}.tgz now."
+echo "This may take several minutes."
 docker image save b_task_$TASK | gzip -c - > b_task_${TASK}.tgz
 echo "Please upload this file for competition purposes if your code is not public."
