@@ -20,20 +20,20 @@ with open(marker_path, "r") as markers_f:
         print("%s" % line)
 
 
-detection_publisher = rospy.Publisher('fre_detections', std_msgs.msg.String, queue_size=10)
+detection_publisher = rospy.Publisher("fre_detections", std_msgs.msg.String, queue_size=10)
 
 # drive for 3 seconds
 driver(3)
 
 # report weed detection
-print('report weed detection')
+print("report weed detection")
 detection_publisher.publish(std_msgs.msg.String("weed"))
 
 # drive for 3 seconds
 driver(3)
 
 # report litter detection
-print('report litter detection')
+print("report litter detection")
 detection_publisher.publish(std_msgs.msg.String("litter"))
 
 # drive for 3 seconds

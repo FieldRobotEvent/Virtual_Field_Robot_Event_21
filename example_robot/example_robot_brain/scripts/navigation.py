@@ -13,7 +13,7 @@ def driver(duration=10):
     rospy.init_node("example_robot_driver", anonymous=True)
     rate = rospy.Rate(10)  # 10hz
 
-    for i in range(duration*10):
+    for i in range(duration * 10):
         msg = Twist()
         msg.linear.x = 1
         pub.publish(msg)
