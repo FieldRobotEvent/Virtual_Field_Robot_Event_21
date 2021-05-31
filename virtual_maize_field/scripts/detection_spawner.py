@@ -13,6 +13,7 @@ from gazebo_msgs.srv import SpawnModel
 from geometry_msgs.msg import Pose, Point, Quaternion
 from gazebo_msgs.srv import GetModelState
 from urdf_parser_py.urdf import URDF
+import time
 
 counter = 0
 robot_name = ''
@@ -32,17 +33,8 @@ def callback(data):
     print(a)
     
 def listener():
-
-    # In ROS, nodes are uniquely named. If two nodes with the same
-    # name are launched, the previous one is kicked off. The
-    # anonymous=True flag means that rospy will choose a unique
-    # name for our 'listener' node so that multiple listeners can
-    # run simultaneously.
-    rospy.init_node('listener', anonymous=True)
-
+    print('Ready to spawn some detections')
     rospy.Subscriber("fre_detections", String, callback)
-
-    # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
     
 def create_marker(name, kind):
@@ -88,10 +80,24 @@ def create_marker(name, kind):
 
 
 if __name__ == '__main__':
+    rospy.init_node('detection_spawner', anonymous=True)
+    print('detection_spawner node started')
+    print('Wating for gazebo services')
     rospy.wait_for_service("gazebo/spawn_sdf_model")
     rospy.wait_for_service('/gazebo/get_model_state')
     gms = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
-    robot_name = URDF.from_parameter_server().name
     spawn_model  = rospy.ServiceProxy("gazebo/spawn_sdf_model", SpawnModel)
+    print('gazebo services started')
     
+    has_printed = False
+    while not rospy.has_param('robot_description') and not rospy.is_shutdown():
+        if not has_printed:
+            print("Waiting for the robot description in the param server")
+            has_printed = True
+            
+        time.sleep(0.5)
+        
+    print("Found the robot description in the param server")
+    robot_name = URDF.from_parameter_server().name
+
     listener()
