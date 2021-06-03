@@ -32,10 +32,10 @@ if ! docker ps --format "{{.Names}}" | grep "$A_NAME" ; then
 docker run -d \
   --name "$A_NAME" \
   -h acontainer \
-  -v "${MYPATH}/task_1/worlds:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/worlds" \
-  -v "${MYPATH}/task_1/Media:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/Media" \
-  -v "${MYPATH}/task_1/map:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map" \
-  -v "${MYPATH}/task_1/launch:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/launch" \
+  -v "${MYPATH}/task_${TASK}/worlds:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/worlds" \
+  -v "${MYPATH}/task_${TASK}/Media:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/Media" \
+  -v "${MYPATH}/task_${TASK}/map:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map" \
+  -v "${MYPATH}/task_${TASK}/launch:/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/launch" \
   -v "/tmp/.X11-unix:/tmp/.X11-unix:rw" \
   -v "/tmp/.docker.xauth:/tmp/.docker.xauth:rw" \
   -e "DISPLAY=$DISPLAY" \
