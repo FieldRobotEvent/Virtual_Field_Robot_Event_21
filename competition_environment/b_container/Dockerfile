@@ -2,7 +2,8 @@
 FROM ros:melodic-robot
 
 # Robot dependencies (this is the software required by your own robot)
-RUN apt-get update && \
+RUN apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654 && \
+  apt-get update && \
   apt-get -y install ros-melodic-desktop-full ros-melodic-pointgrey-camera-description && \
   apt-get -y install ros-melodic-robot-localization ros-melodic-twist-mux && \
   apt-get -y install ros-melodic-interactive-marker-twist-server ros-melodic-hector-gazebo-plugins && \

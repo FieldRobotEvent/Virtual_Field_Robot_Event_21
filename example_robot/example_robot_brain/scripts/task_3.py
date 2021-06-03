@@ -4,6 +4,8 @@ from navigation import driver
 from detection import obj_mapper
 import csv
 import rospkg
+import rospy
+import std_msgs.msg
 import os
 
 # open the location marker file
@@ -17,8 +19,25 @@ with open(marker_path, "r") as markers_f:
     for line in marker_reader:
         print("%s" % line)
 
-# drive for 10 seconds
-driver()
+
+detection_publisher = rospy.Publisher("fre_detections", std_msgs.msg.String, queue_size=10)
+
+# drive for 3 seconds
+driver(3)
+
+# report weed detection
+print("report weed detection")
+detection_publisher.publish(std_msgs.msg.String("weed"))
+
+# drive for 3 seconds
+driver(3)
+
+# report litter detection
+print("report litter detection")
+detection_publisher.publish(std_msgs.msg.String("litter"))
+
+# drive for 3 seconds
+driver(3)
 
 # detect weeds
 weed_placements, litter_placements = obj_mapper()
