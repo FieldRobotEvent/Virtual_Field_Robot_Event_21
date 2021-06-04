@@ -70,7 +70,7 @@ For each task you are expected to deliver a docker container. These containers c
 
 First, start the competition environment for your task, e.g. task 2 by running `bash start_competition_environment.sh 2`. This command will launch the a_container(simulation container) and the b_container(robot container) for task 2. If the b_container for this task does not exist yet, it will create one, based on the dockerfile located in `/b_container` and name this container `b_task_2`. However note that the dockerfile in the b_container directory ends with a launch command to start task 1. This is of course undesired for task 2.
 
-While this container is active, we can change the start CMD by running the command `bash change_my_start_cmd.sh "sh -c \"<my launch command>""` .  To change the start command to start the example robot for task 2, use the following command: `bash change_my_start_cmd.sh "sh -c \"roslaunch example_robot_brain task_2.launch --wait –screen\""`.  The container named b_task_2 will now be equipped with this start command. 
+While this container is active, we can change the start CMD by running the command `bash change_my_start_cmd.sh "sh -c \"<my launch command>""` .  To change the start command to start the example robot for task 2, use the following command: `bash change_my_start_cmd.sh "sh -c \"roslaunch example_robot_brain task_2.launch --wait --screen\""`.  The container named b_task_2 will now be equipped with this start command. 
 
 Now stop the competition environment by running `bash stop_competition_environment.sh 2`
 
