@@ -30,7 +30,7 @@ ENV ROS_MASTER_URI=http://acontainer:11311
 
 # launch your robot. The wait command ensures that this launch file waits for the gazebo container to start the ros server. 
 
-# task 1 # start task 1, and in the background sleep for 999999 seconds
+# start task 1, and in the background sleep for 999999 seconds
 CMD sh -c "roslaunch example_robot_brain task_1.launch --wait --screen; sleep 999999"
 
 # task 2
