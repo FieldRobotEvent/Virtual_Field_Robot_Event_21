@@ -34,7 +34,7 @@ RUN apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E
 #################
 
 #Make the code required for the container and add it to the entrypoint
-RUN mkdir -p /catkin/src && cd /catkin/src && git clone https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event.git && rm -rf Virtual_Field_Robot_Event/example_robot
+RUN mkdir -p /catkin/src && cd /catkin/src && git clone https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event.git && git clone https://github.com/hohenheimdr/fre_counter.git && rm -rf Virtual_Field_Robot_Event/example_robot
 RUN bash -c "source /opt/ros/melodic/setup.bash && cd /catkin && catkin_make"
 RUN sed -i 's|^\(source .*\)|\1 \&\& source /catkin/devel/setup.bash|g' /ros_entrypoint.sh
 
