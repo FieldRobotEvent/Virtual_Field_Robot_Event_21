@@ -1,1 +1,1 @@
-S 3L 2L 2R 1R 5L F
+S 3L 2L 1R 1R 5L F
