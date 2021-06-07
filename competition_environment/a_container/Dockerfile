@@ -34,7 +34,7 @@ RUN apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E
 #################
 
 #Make the code required for the container and add it to the entrypoint
-RUN mkdir -p /catkin/src && cd /catkin/src && git clone https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event.git && rm -rf Virtual_Field_Robot_Event/example_robot
+RUN mkdir -p /catkin/src && cd /catkin/src && git clone https://github.com/FieldRobotEvent/Virtual_Field_Robot_Event.git && git clone https://github.com/hohenheimdr/fre_counter.git && rm -rf Virtual_Field_Robot_Event/example_robot
 RUN bash -c "source /opt/ros/melodic/setup.bash && cd /catkin && catkin_make"
 RUN sed -i 's|^\(source .*\)|\1 \&\& source /catkin/devel/setup.bash|g' /ros_entrypoint.sh
 
@@ -47,6 +47,9 @@ RUN sed -i 's|^\(source .*\)|\1 \&\& source /catkin/devel/setup.bash|g' /ros_ent
 #  cp -r /catkin/src/Virtual_Field_Robot_Event/jackal_fre/* /gzweb/http/client/assets/
 # RUN cd gzweb && npm run deploy --- -m local
 #################
+
+# copy rviz default config
+COPY rviz_config.rviz /opt/ros/melodic/share/rviz/default.rviz
 
 #Map volume location
 VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map"]
@@ -67,7 +70,7 @@ ENV QT_X11_NO_MITSHM=1
 
 # Launch the simulation and evaluation node
 # task 1 and 2
-CMD sh -c "gnome-terminal -- rosrun fre_counter fre_counter_node && roslaunch virtual_maize_field jackal_simulation.launch paused:=true"
+CMD sh -c "gnome-terminal -- rosrun fre_counter fre_counter_node && roslaunch virtual_maize_field jackal_simulation.launch paused:=true & rviz"
 
 # task 3 and 4
 # CMD sh -c "roslaunch virtual_maize_field simulation.launch paused:=true"
