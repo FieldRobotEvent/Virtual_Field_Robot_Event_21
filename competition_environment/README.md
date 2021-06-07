@@ -104,7 +104,7 @@ When you want to launch task 3 for the example robot, you need to change the sta
 When starting the competition environment for the example robot, you will see that the robot starts do drive. Afterwards, the robot will output a detection map of the field in the location `task_3/map/pre_map.csv`.
 
 ## Submit your robot container to the organization.
-TODO
+Use the `./dump_my_container.sh` container script to create a tarbal from your container. Upload this file to the link provided in your mailbox. Note that for task 3 and 4 you also need to submit the `my_robot` folder.
 
 # Tips and Hints
 * Be careful to wait for your script to wait until the rosmaster is up. Due to the container spawning in (almost) parallel, there's a chance that B will come up before A is completely ready.
