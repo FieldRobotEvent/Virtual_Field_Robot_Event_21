@@ -48,6 +48,9 @@ RUN sed -i 's|^\(source .*\)|\1 \&\& source /catkin/devel/setup.bash|g' /ros_ent
 # RUN cd gzweb && npm run deploy --- -m local
 #################
 
+# copy rviz default config
+COPY rviz_config.rviz /opt/ros/melodic/share/rviz/default.rviz
+
 #Map volume location
 VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/map"]
 VOLUME ["/catkin/src/Virtual_Field_Robot_Event/virtual_maize_field/Media"]
@@ -67,7 +70,7 @@ ENV QT_X11_NO_MITSHM=1
 
 # Launch the simulation
 # task 1 and 2
-CMD sh -c "roslaunch virtual_maize_field jackal_simulation.launch paused:=true"
+CMD sh -c "roslaunch virtual_maize_field jackal_simulation.launch paused:=true & rviz"
 
 # task 3 and 4
 # CMD sh -c "roslaunch virtual_maize_field simulation.launch paused:=true"
