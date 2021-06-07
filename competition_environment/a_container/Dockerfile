@@ -8,7 +8,7 @@ RUN apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E
   apt-get -y install ros-melodic-desktop-full ros-melodic-pointgrey-camera-description && \
   apt-get -y install ros-melodic-robot-localization ros-melodic-twist-mux && \
   apt-get -y install ros-melodic-interactive-marker-twist-server ros-melodic-hector-gazebo-plugins && \
-  apt-get -y install git screen python-pip python3-pip && \
+  apt-get -y install git screen python-pip python3-pip gnome-shell gnome-terminal && \
   rm -rf /var/lib/apt/lists/*
 RUN pip install -U pip && pip3 install -U pip
 RUN pip install -U jinja2 rospkg
@@ -68,9 +68,9 @@ ENV XAUTHORITY=/tmp/.docker.xauth
 ENV DISPLAY=:0
 ENV QT_X11_NO_MITSHM=1
 
-# Launch the simulation
+# Launch the simulation and evaluation node
 # task 1 and 2
-CMD sh -c "roslaunch virtual_maize_field jackal_simulation.launch paused:=true & rviz"
+CMD sh -c "gnome-terminal -- rosrun fre_counter fre_counter_node && roslaunch virtual_maize_field jackal_simulation.launch paused:=true & rviz"
 
 # task 3 and 4
 # CMD sh -c "roslaunch virtual_maize_field simulation.launch paused:=true"
