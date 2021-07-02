@@ -72,8 +72,12 @@ ENV QT_X11_NO_MITSHM=1
 # task 1 and 2
 CMD sh -c "gnome-terminal -- rosrun fre_counter fre_counter_node && roslaunch virtual_maize_field jackal_simulation.launch paused:=true & rviz"
 
+
 # task 3 and 4
-# CMD sh -c "roslaunch virtual_maize_field simulation.launch paused:=true"
+# CMD sh -c "gnome-terminal -- rosrun fre_counter fre_counter_node && stdbuf -oL roslaunch virtual_maize_field simulation.launch paused:=true & rviz & stdbuf -oL rosrun virtual_maize_field detection_spawner.py"
+
+# for benedict
+# CMD sh -c "gnome-terminal -- rosrun fre_counter fre_counter_node && stdbuf -oL roslaunch virtual_maize_field jackal_simulation.launch paused:=true & rviz & stdbuf -oL rosrun virtual_maize_field detection_spawner.py"
 
 ## deprecated ##
 # && \ cd /gzweb && npm start

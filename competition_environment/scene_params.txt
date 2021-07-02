@@ -1,0 +1,24 @@
+    <scene>
+      <sky>
+        <clouds>
+          <speed>12</speed>
+        </clouds>
+      </sky>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+      <grid>false</grid>
+      <origin_visual>false</origin_visual>
+    </scene>
+
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <track_visual>
+          <name>jackal</name>
+          <static>false</static>
+          <use_model_frame>true</use_model_frame>
+          <xyz>-3 0 5</xyz>
+          <inherit_yaw>true</inherit_yaw>
+        </track_visual>
+      </camera>
+    </gui>

@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <link name="front_realsense2" />
+
+  <!--
+    The gazebo plugin aligns the depth data with the Z axis, with X=left and Y=up
+    ROS expects the depth data along the X axis, with Y=left and Z=up
+    This link only exists to give the gazebo plugin the correctly-oriented frame
+  -->
+  <link name="front_realsense_gazebo2" />
+  <joint name="front_realsense_gazebo_joint2" type="fixed">
+    <parent link="front_realsense2"/>
+    <child link="front_realsense_gazebo2"/>
+    <origin xyz="0 0 0" rpy="-1.5707963267948966 0 -1.5707963267948966"/>
+  </joint>
+
+  <gazebo reference="front_realsense2">
+    <turnGravityOff>true</turnGravityOff>
+    <sensor type="depth" name="front_realsense_depth2">
+      <update_rate>30</update_rate>
+      <camera>
+        <!-- 75x65 degree FOV for the depth sensor -->
+        <horizontal_fov>2.0184351666666667</horizontal_fov>
+        <vertical_fov>2.0122901111111111</vertical_fov>
+
+        <image>
+          <width>1920</width>
+          <height>1080</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <!-- give the color sensor a maximum range of 50m so that the simulation renders nicely -->
+          <near>0.01</near>
+          <far>50.0</far>
+        </clip>
+      </camera>
+      <plugin name="kinect_controller2" filename="libgazebo_ros_openni_kinect.so">
+        <baseline>0.2</baseline>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+        <cameraName>realsense2</cameraName>
+        <imageTopicName>color/image_raw</imageTopicName>
+        <cameraInfoTopicName>color/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>depth/image_rect_raw</depthImageTopicName>
+        <depthImageInfoTopicName>depth/camera_info</depthImageInfoTopicName>
+        <pointCloudTopicName>depth/color/points</pointCloudTopicName>
+        <frameName>front_realsense_gazebo2</frameName>
+        <pointCloudCutoff>0.105</pointCloudCutoff>
+        <pointCloudCutoffMax>8.0</pointCloudCutoffMax>
+        <distortionK1>0.00000001</distortionK1>
+        <distortionK2>0.00000001</distortionK2>
+        <distortionK3>0.00000001</distortionK3>
+        <distortionT1>0.00000001</distortionT1>
+        <distortionT2>0.00000001</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0</Cx>
+        <Cy>0</Cy>
+        <focalLength>0</focalLength>
+        <hackBaseline>0</hackBaseline>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <link name="front_realsense_lens2">
+    <!--<visual>-->
+      <!--<origin xyz="0 0 0" rpy="${pi} 0 ${pi/2}" />-->
+      <!--<geometry>-->
+        <!--<mesh filename="package://realsense2_description/meshes/d435.dae" />-->
+      <!--</geometry>-->
+      <!--<material name="white" />-->
+    <!--</visual>-->
+  </link>
+
+  <joint type="fixed" name="front_realsense_lens_joint2">
+    <!-- Offset the camera 5cm forwards and 1cm up -->
+    <origin xyz="0.06 0.26 -0.085" rpy="1.5707963267948966 ${pi} -1.5707963267948966" />
+    <parent link="camera_frame" />
+    <child link="front_realsense_lens2" />
+  </joint>
+
+  <joint type="fixed" name="front_realsense_joint2">
+    <origin xyz="0 0 0" rpy="0 1.5707963267948966 0" />
+    <parent link="front_realsense_lens2" />
+    <child link="front_realsense2" />
+  </joint>
+
+</robot>

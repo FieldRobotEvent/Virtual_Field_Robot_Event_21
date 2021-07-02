@@ -7,4 +7,4 @@ rosrun virtual_maize_field generate_world.py \
 --row_segment_curved_radius_min 4.0 \
 --row_segment_curved_radius_max 5.0 \
 --ground_resolution 0.15 \
---ground_elevation_max 0.05
+--ground_elevation_max 0.15

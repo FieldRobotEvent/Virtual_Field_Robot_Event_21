@@ -1,0 +1,20 @@
+root@acontainer:/# history
+    1  ls
+    2  apt-get install nvidia-driver-460
+    3  apt-get update
+    4  apt-get install nvidia-driver-460
+    5  dpkg -l | grep gl
+    6  dpkg -l | grep glx
+    7  dpkg --add-architecture i386
+    8  apt-get update
+    9  apt-get install nvidia-driver-460:i386
+   10  apt-get install nvidia-driver-460
+   11  apt-get install --reinstall nvidia-driver-460
+   12  apt-get remove --purge nvidia-driver-460
+   13  apt-get autoremove
+   14  apt-get install nvidia-driver-460
+   15  dpkg -l | grep gl
+   16  dpkg -l | grep nvidia
+   17  dpkg -l | grep glx
+   18  history
+

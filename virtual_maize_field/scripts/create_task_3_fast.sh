@@ -9,5 +9,5 @@ rosrun virtual_maize_field generate_world.py \
 --weeds 5 \
 --ghost_objects true \
 --location_markers true \
---ground_resolution 0.15 \
---ground_elevation_max 0.05
+--ground_resolution 0.08 \
+--ground_elevation_max 0.2

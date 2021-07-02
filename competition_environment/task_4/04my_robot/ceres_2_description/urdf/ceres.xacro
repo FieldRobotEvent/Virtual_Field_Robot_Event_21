@@ -1,0 +1,328 @@
+<?xml version="1.0" ?>
+<robot name="ceres" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:arg name="topic_imu" default="/imu/data_raw"/>
+  <xacro:arg name="topic_camera_points" default="depth/points"/>
+  <xacro:arg name="camera_name" default="camera"/>
+
+
+  <!--#####################################################-->
+  <!--########## ros_control and joint_state_pub ##########-->
+  <!--#####################################################-->
+  <gazebo>
+    <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+      <jointName>joint_wheel_left_front,joint_wheel_left_back,joint_wheel_right_front,joint_wheel_right_back </jointName>
+      <updateRate>100.0</updateRate>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <publish_rate>100.0</publish_rate>
+      <legacyModeNS>true</legacyModeNS>
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  <!-- ############# !-->
+  <!-- Eigenschaften !-->
+  <!-- ############# !-->
+    <!-- Mathematische Konstanten -->
+    <xacro:property name="M_PI" value="3.1415926535897931" />
+
+    <!-- Collision Bitmasks !-->
+    <xacro:property name="cbm_ground">
+      <collide_bitmask>0x01</collide_bitmask>
+    </xacro:property>
+
+
+  <!-- Macros -->
+  <xacro:macro name="cylinder_inertia" params="m r h">
+    <inertia  ixx="${m*(3*r*r+h*h)/12}" ixy = "0" ixz = "0"
+              iyy="${m*(3*r*r+h*h)/12}" iyz = "0"
+              izz="${m*r*r/2}" />
+  </xacro:macro>
+
+  <xacro:macro name="box_inertia" params="m x y z">
+    <inertia  ixx="${m*(y*y+z*z)/12}" ixy = "0" ixz = "0"
+              iyy="${m*(x*x+z*z)/12}" iyz = "0"
+              izz="${m*(x*x+z*z)/12}" />
+  </xacro:macro>
+
+  <xacro:macro name="sphere_inertia" params="m r">
+    <inertia  ixx="${2*m*r*r/5}" ixy = "0" ixz = "0"
+              iyy="${2*m*r*r/5}" iyz = "0"
+              izz="${2*m*r*r/5}" />
+  </xacro:macro>
+
+   <alpha value="1.0"/>
+
+  <!--##########################-->
+  <!--########## Base ##########-->
+  <!--##########################-->
+  <link name="base_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ceres_description2/meshes/base_link.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0"/>
+      <geometry>
+        <box size="0.81665 0.42 0.5185"/>
+      </geometry>
+    </collision>
+    <inertial>
+        <mass value="20.00"/>
+        <xacro:box_inertia m="5.0" x="0.81665" y="0.42" z="0.5185"/>
+    </inertial>
+  </link>
+
+  <gazebo reference="base_link">
+    <collision>
+      <surface>
+        <contact>
+          <xacro:insert_block name="cbm_ground" />
+        </contact>
+      </surface>
+    </collision>
+  </gazebo>
+
+  <link name="base_footprint"/>
+
+  <joint name="base_footprint_joint" type="fixed">
+    <origin xyz="0 0 -0.141" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="base_footprint" />
+  </joint>
+
+
+  <!--############################-->
+  <!--########## Wheels ##########-->
+  <!--############################-->
+
+ <xacro:macro name="wheel" params="order side pos">
+    <link name="link_wheel_${side}_${order}">
+      <visual>
+        <geometry>
+          <mesh filename="package://ceres_description/meshes/wheel.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin rpy="${pi/2} 0 ${pi/2}" xyz="0.0 0.0 0.0"/>
+        <geometry>
+          <cylinder length="0.085" radius="0.10795"/>
+        </geometry>
+      </collision>
+      <inertial>
+          <mass value="1.0"/>
+          <xacro:cylinder_inertia m="2.5" r="0.10796" h="0.085"/>
+      </inertial>
+    </link>
+
+
+    <joint name="joint_wheel_${side}_${order}" type="continuous">
+        <parent link="base_link"/>
+        <child link="link_wheel_${side}_${order}"/>
+        <xacro:if value="${side == 'left'}">
+          <axis xyz="-1 0 0"/>
+          <origin rpy="0 0 ${-pi/2}" xyz="${pos}"/>
+        </xacro:if>
+        <xacro:if value="${side == 'right'}">
+          <axis xyz="1 0 0"/>
+          <origin rpy="0 0 ${pi/2}" xyz="${pos}"/>
+        </xacro:if>
+        <dynamics damping="0.0" friction="0.05"/>
+        <xacro:if value="${order != 'mid'}">
+          <axis xyz="1 0 0"/> <!-- When mimic the joint, the rotation axis must not be inverted -->
+          <mimic joint="joint_wheel_${side}_mid" multiplier="1.0" offset="0.0" />
+        </xacro:if>
+    </joint>
+
+
+    <transmission name="trans_wheel_${side}_${order}">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="joint_wheel_${side}_${order}">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="motor_wheel_${side}_${order}">
+        <mechanicalReduction>34</mechanicalReduction>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </actuator>
+    </transmission>
+
+    <gazebo reference="link_wheel_${side}_${order}">
+      <xacro:if value="${order != 'mid'}">
+        <mu1 value="0.0"/>
+        <mu2 value="0.0"/>
+      </xacro:if>
+      <collision>
+        <surface>
+          <contact>
+            <xacro:insert_block name="cbm_ground" />
+          </contact>
+        </surface>
+      </collision>
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:wheel side="left" order="front" pos="0.15 0.125 -0.082" />
+  <xacro:wheel side="left" order="back" pos="-0.15 0.125 -0.082" />
+  <xacro:wheel side="right" order="front" pos="0.15 -0.125 -0.082" />
+  <xacro:wheel side="right" order="back" pos="-0.15 -0.125 -0.082" />
+
+
+  <!--############################-->
+  <!--########## Camera ##########-->
+  <!--############################-->
+
+  <xacro:include filename="$(find realsense2_camera)/urdf/_d435.urdf.xacro"/>
+
+  <sensor_d435 parent="base_link">
+    <origin rpy="0 0.2 0" xyz="-0.065 -0.003 0.155"/>
+  </sensor_d435>
+
+
+  <!-- Wegen eines Bugs im realsense_camera2 package muss ein Hilfskoordinatensystem eingefuehrt werden
+  sonst erkennt die Kamera das realsensegehaeuse.... -->
+  <link name="camera_depth_frame_gazebo"/>
+  <joint name="camera_depth_joint_gazebo" type="fixed">
+      <parent link="camera_depth_frame"/>
+      <child link="camera_depth_frame_gazebo"/>
+      <origin rpy="0 0 0" xyz="0.015 0.0 0.0"/>
+  </joint>
+
+  <link name="camera_depth_optical_frame_gazebo"/>
+  <joint name="camera_depth_optical_joint_gazebo" type="fixed">
+      <parent link="camera_depth_frame_gazebo"/>
+      <child link="camera_depth_optical_frame_gazebo"/>
+      <origin rpy="${-pi/2} 0 ${-pi/2}" xyz="0.0 0.0 0.0"/>
+  </joint>
+
+
+
+
+  <!-- The realsense2_camera package does NOT include the urdf for the gazebo simulation -->
+  <gazebo reference="camera_depth_frame_gazebo">
+    <sensor type="depth" name="camera_front">
+      <always_on>true</always_on>
+      <update_rate>30.0</update_rate>
+      <camera>
+        <horizontal_fov>${71.2*M_PI/180.0}</horizontal_fov>
+        <image>
+          <width>848</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.01</near>
+          <far>100</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+
+      <plugin name="camera_depth" filename="libgazebo_ros_openni_kinect.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30.0</updateRate>
+        <cameraName>$(arg camera_name)</cameraName>
+        <!-- Namensgebung der Topics wie bei der Intel Realsense D435-->
+        <imageTopicName>depth/image_raw</imageTopicName>
+        <cameraInfoTopicName>depth/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>depth/image_raw</depthImageTopicName>
+        <depthImageInfoTopicName>depth/camera_info</depthImageInfoTopicName>
+        <pointCloudTopicName>$(arg topic_camera_points)</pointCloudTopicName>
+        <!-- WICHTIG: Hier auf den Hilfs-Verbinder verweisen. s.o. -->
+        <frameName>camera_depth_optical_frame_gazebo</frameName>
+        <pointCloudCutoff>0.24</pointCloudCutoff>
+        <distortionK1>0</distortionK1>
+        <distortionK2>0</distortionK2>
+        <distortionK3>0</distortionK3>
+        <distortionT1>0</distortionT1>
+        <distortionT2>0</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0</Cx>
+        <Cy>0</Cy>
+        <focalLength>0</focalLength>
+        <hackBaseline>0</hackBaseline>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- Collision -->
+  <gazebo reference="camera_link">
+    <visual>
+      <material> Gazebo/Grey </material>
+    </visual>
+    <collision>
+      <surface>
+        <contact>
+          <xacro:insert_block name="cbm_ground" />
+        </contact>
+      </surface>
+    </collision>
+  </gazebo>
+
+
+<!--############################-->
+<!--########## IMU #############-->
+<!--############################-->
+  <link name="link_imu">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.02 0.02 0.02"/>
+      </geometry>
+      <material name="red">
+          <color rgba="1.0 0.1 1.0 1.0"/>
+      </material>
+    </visual>
+
+    <inertial>
+        <mass value="0.025"/>
+        <inertia ixx="0.0015" iyy="0.00375" izz="0.00375"
+                 ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+
+  <joint name="joint_imu" type="fixed">
+      <parent link="base_link"/>
+      <child link="link_imu"/>
+      <origin rpy="0 0.0 0" xyz="0.02 0 0.03"/>
+  </joint>
+
+  <link name="link_imu_ned"/>
+
+  <joint name="joint_imu_ned" type="fixed">
+      <parent link="link_imu"/>
+      <child link="link_imu_ned"/>
+      <origin rpy="0.0 ${pi} ${-pi/2}" xyz="0 0 0"/>
+  </joint>
+
+  <gazebo reference="base_link">
+     <gravity>true</gravity>
+     <sensor name="imu_sensor" type="imu">
+       <always_on>true</always_on>
+       <update_rate>100</update_rate>
+       <visualize>true</visualize>
+       <topic>__default_topic__</topic>
+       <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+         <topicName>$(arg topic_imu)</topicName>
+         <bodyName>link_imu_ned</bodyName>
+         <updateRateHZ>100.0</updateRateHZ>
+         <gaussianNoise>0.0</gaussianNoise>
+         <xyzOffset>0 0 0</xyzOffset>
+         <rpyOffset>0 0 0</rpyOffset>
+         <frameName>link_imu_ned</frameName>
+       </plugin>
+       <pose>0 0 0 0 0 0</pose>
+     </sensor>
+   </gazebo>
+</robot>

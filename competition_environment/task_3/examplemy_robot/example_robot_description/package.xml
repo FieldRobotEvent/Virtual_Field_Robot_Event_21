@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package>
+  <name>example_robot_description</name>
+  <version>0.7.2</version>
+  <description>URDF robot description for Jackal</description>
+
+  <maintainer email="mpurvis@clearpathrobotics.com">Mike Purvis</maintainer>
+
+  <license>BSD</license>
+
+  <author email="mpurvis@clearpathrobotics.com">Mike Purvis</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roslaunch</build_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>urdf</run_depend>
+  <run_depend>xacro</run_depend>
+  <run_depend>example_lms1xx</run_depend>
+  <run_depend>pointgrey_camera_description</run_depend>
+
+  <export>
+    <!-- gazebo_ros_paths_plugin automatically adds these to
+         GAZEBO_PLUGIN_PATH and GAZEBO_MODEL_PATH when you do this export inside
+         the package.xml file. You can than use URIs of type model://my_package/stuff. -->
+    <gazebo_ros gazebo_model_path="${prefix}"/>
+  </export>
+</package>

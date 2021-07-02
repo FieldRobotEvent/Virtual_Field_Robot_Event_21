@@ -1,0 +1,20 @@
+<launch>
+
+  <arg name="precompiled" default="false"/>
+  <arg name="single" default="false"/>
+  <arg name="dual_front_back" default="false"/>
+  <arg name="dual_right_left" default="false"/>
+  <arg name="full" default="false"/>
+
+  <group if="$(arg precompiled)">
+    <param name="robot_description"
+           textfile="$(find ceres_2_description)/urdf/ceres_2.urdf"/>
+  </group>
+
+  <group unless="$(arg precompiled)">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find ceres_2_description)/urdf/ceres_2.xacro' use_nominal_extrinsics:=false
+           single:=$(arg single) dual_front_back:=$(arg dual_front_back) dual_right_left:=$(arg dual_right_left) full:=$(arg full)" />
+  </group>
+
+</launch>
