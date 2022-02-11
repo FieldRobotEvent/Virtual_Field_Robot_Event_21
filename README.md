@@ -1,8 +1,10 @@
+**This repository is deprecated, for the repositories of the 2022 event, see the [example_workspace](https://github.com/FieldRobotEvent/example_ws), [virtual_maize_field package](https://github.com/FieldRobotEvent/virtual_maize_field) and the [competition environment](https://github.com/FieldRobotEvent/competition_environment).**
+
 # Virtual Field Robot Event 
 
 <p float="left" align="middle">
   <img src="https://www.fieldrobot.com/event/wp-content/uploads/2021/05/FRE-logo-v03.png" width="250" style="margin: 10px;"> 
-  <img src="https://www.wur.nl/upload/58340fb4-e33a-4d0b-af17-8d596fa93663_WUR_RGB_standard.png" width="250" style="margin: 10px;"> 
+  <img src="https://seekvectorlogo.com/wp-content/uploads/2020/01/wageningen-university-and-research-wur-vector-logo.png" width="250" style="margin: 10px;"> 
   <img src="https://www.uni-hohenheim.de/typo3conf/ext/uni_layout/Resources/Public/Images/uni-logo-en.svg" width="250" style="margin: 10px;">
 </p>
 
@@ -47,13 +49,3 @@ The tasks are from https://www.fieldrobot.com/event/index.php/contest/. The simu
 * If you encounter the error: 'VMware: vmw_ioctl_command error Invalid argument.’ When launching gazebo. Then you should type `echo "export SVGA_VGPU10=0" >> ~/.profile` in the terminal and reboot your (virtual) machine. 
 * If you encounter the error ‘Error in REST request’ when launching gazebo. Then you should open `~/.ignition/fuel/config.yaml` and change the line: ‘url: https://api.ignitionfuel.org’ to ‘url:  https://api.ignitionrobotics.org’.
 * If the lidar data on the topic `front/scan` only returns ranges with the value `inf`, even though in simulation the lidar should ‘see’ certain objects within its range, you have to run `export LIBGL_ALWAYS_SOFTWARE=1` in the terminal in which you launch gazebo. You have to run this command before starting gazebo. This solves the problem with the lidar, but might have some consequences on the rendering speed of gazebo. 
-
-
-
-
-
-
-
-
-
-
