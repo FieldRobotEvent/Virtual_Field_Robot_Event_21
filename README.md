@@ -1,4 +1,4 @@
-**This repository is deprecated, for the repositories of the 2022 event, see the [example_workspace](https://github.com/FieldRobotEvent/example_ws), [virtual_maize_field package](https://github.com/FieldRobotEvent/virtual_maize_field) and the [competition environment](https://github.com/FieldRobotEvent/competition_environment).**
+**This repository contains an old version of the `virtual_maize_field` package. For the maintained package, see [virtual_maize_field package].**
 
 # Virtual Field Robot Event 
 
