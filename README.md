@@ -1,4 +1,4 @@
-**This repository contains an old version of the `virtual_maize_field` package. For the maintained package, see [virtual_maize_field package].**
+**This repository contains an old version of the `virtual_maize_field` package. For the maintained package, see [virtual_maize_field package](https://github.com/FieldRobotEvent/virtual_maize_field).**
 
 # Virtual Field Robot Event 
 
